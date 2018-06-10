@@ -1,0 +1,125 @@
+/* 全体のボックス横並べ */
+
+.itemFlex {
+	display: flex;
+	padding: 72px 0px;
+}
+
+nav {
+	flex: 125;
+}
+
+article {
+	flex: 875;
+}
+
+/* nav {
+	flex: 125;
+	position: fixed;
+}
+
+article {
+	flex: 875;
+	width:875px;
+	margin: 0px 0px 130px 0px;
+}
+ */
+
+/* 一覧のBOX */
+.articleItem {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	width: 870px;
+	margin: 0px;
+}
+
+.articleItem a {
+	display: block;
+}
+
+.articleItem a:hover {
+	opacity: 0.8;
+}
+
+.items {
+	flex: 1;
+	width: 400px;
+	padding: 10px 10px 30px 10px;
+	text-align: center;
+}
+
+/* 一覧の中身 */
+.items img {
+	width: 350px;
+}
+
+
+
+.items p {
+	font-family: 'Josefin Sans', sans-serif;
+	margin: 0px;
+}
+
+/* ITEMページ左のcolor検索バー */
+h2 {
+	width: 100px;
+	margin: 20px;
+	font-family: 'Josefin Sans', sans-serif;
+	transform: rotate(-45deg);
+	font-size: 30px;
+}
+
+.colorSearch {
+	margin: 0px 50px;
+}
+
+nav ul {
+	margin:0px;
+	padding: 0px;
+}
+
+.colorSearch i {
+	font-size: 20px;
+	padding: 5px;
+}
+
+.colorSearch a:hover {
+	opacity: 0.5;
+}
+
+.black {
+	color: #000000;
+}
+
+.gray {
+	color: #B5B5B6;
+}
+
+.red {
+	color: #D52D00;
+}
+
+.pink {
+	color: #DA79AD
+}
+
+.orange {
+	 color: #F39800;
+}
+
+.yellow {
+	color: yellow;
+}
+
+.green {
+	color: #009944;
+}
+
+.lightblue {
+	color: #00A0E9;
+}
+
+.blue {
+	color: #1D2088
+}

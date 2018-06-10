@@ -1,0 +1,623 @@
+/* input, button, textarea,select{
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+
+body {
+    font-family: "Hiragino Kaku Gothic Pro", "メイリオ", "sans-serif";
+    width: 1000px;
+    margin: 0px auto;
+    color: #32353A;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+  color: black;
+  }
+
+ul {
+	list-style-type: none;
+}
+
+h2 {
+	font-weight: normal;
+}
+
+table, th, tr, td {
+	border:none;
+}
+
+/////全体のheaderの設定 /////
+
+
+ header {
+	border: solid;
+	padding: 0px 0px;
+	display: flex;
+}
+
+メニューボタンの設定
+.menu {
+	margin: auto;
+}
+
+header ul {
+	width: 580px;
+	margin: auto 0px;
+	padding: 0px;
+	display: flex;
+	align-items: center;
+}
+
+header li {
+	flex:1;
+	text-align: center;
+	margin-top: 5px;
+	font-family: 'Josefin Sans', sans-serif;
+			font-size: 15px;
+}
+
+.menu a{
+	display: block;
+	padding: 10px;
+}
+
+.menu a:hover {
+	transition: 0.3s ;
+  background: silver;背景色をシルバーに
+  color: #ffffff;
+  }
+
+  右のアイコンの設定
+  .icon {
+	margin: auto 0px;
+}
+.icon i{
+	font-size: 20px;
+	padding: 2px;
+}
+
+.icon a:hover {
+	opacity: 0.8;
+} */
+
+/* .topMain h2{
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.newItem img{
+	width: 200px;
+}
+.newItem td {
+	width: 250px;
+} */
+
+/* コンセプトページ */
+
+/*
+.concept {
+	width: 1000px;
+	height: 1000px;
+	background-image: url(../img/concept_03.jpg);
+	背景画像を真ん中に、上から95pxの位置に配置
+	background-position : 50% 95px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.conceptComment {
+	position: relative;
+     top: 200px;
+	width: 450px;
+	line-height: 30px;
+	font-size: 14px;
+	背景だけ透明化している
+	background-color: rgba(255,255,255,0.5)
+}
+
+.conseptH2{
+	width:400px;
+	position: relative;
+     top: 130px;
+     left: 550px;
+	font-family: "Sawarabi Mincho";
+		line-height: 300%;
+		font-weight: lighter;
+		font-size:18px;
+
+} */
+
+/* /////Itemページの設定 /////*/
+
+/* /* 検索バーと一覧のbox */
+/* .itemFlex {
+	display: flex;
+}
+
+nav {
+	flex: 125;
+}
+
+article {
+	flex: 875;
+}
+
+
+一覧のBOX
+.articleItem {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	width: 870px;
+	margin: 0px;
+}
+
+.articleItem a {
+	display: block;
+}
+
+div.items: hover {
+	opacity: 0.5;
+}
+
+.items {
+	flex: 1;
+	width: 400px;
+	padding: 10px 10px 30px 10px;
+	text-align: center;
+}
+
+一覧の中身
+.items img {
+	width: 350px;
+}
+
+.rotate {
+	width: 100px;
+	font-family: 'Josefin Sans', sans-serif;
+	transform: rotate(-45deg);
+	font-size: 30px;
+}
+
+.items p {
+	font-family: 'Josefin Sans', sans-serif;
+	margin: 0px;
+}
+
+ITEMページ左のcolor検索バー
+.color h2 {
+	font-family: 'Josefin Sans', sans-serif;
+	transform: rotate(-45deg);
+	font-size: 30px;
+}
+
+.colorSearch {
+	margin: 0px 50px;
+}
+
+nav ul {
+	margin:0px;
+	padding: 0px;
+}
+
+.colorSearch i {
+	font-size: 20px;
+	padding: 5px;
+}
+
+.colorSearch a:hover {
+	opacity: 0.5;
+}
+
+.black {
+	color: #000000;
+}
+
+.gray {
+	color: #B5B5B6;
+}
+
+.red {
+	color: #D52D00;
+}
+
+.pink {
+	color: #DA79AD
+}
+
+.orange {
+	 color: #F39800;
+}
+
+.yellow {
+	color: yellow;
+}
+
+.green {
+	color: #009944;
+}
+
+.lightblue {
+	color: #00A0E9;
+}
+
+.blue {
+	color: #1D2088
+}
+ */
+ */
+/* アイテム詳細ページ */
+.itemDetail {
+	display:flex;
+	padding: 50px 20px;
+}
+
+.itemDetail img {
+	width: 500px;
+}
+
+.itemImg {
+	flex: 420;
+}
+
+
+.itemDetailArticle {
+	flex: 400;
+	margin: 0px 0px 0px 30px;
+}
+
+.itemDetailArticle {
+		line-height: 30px;
+	font-size: 14px;
+}
+
+.itemDetailArticle h2 {
+	font-weight: bold;
+}
+
+.price {
+	font-size: 20px;
+}
+
+/* フォームの装飾 */
+.itemDetailArticle select {
+	width: 50%;
+	padding: 10px;
+	border: 1px solid #32353A;
+	background: url(../img/yazirusi.jpeg) no-repeat right 5px top 7px;
+	background-size: 20px;
+}
+
+.itemDetailArticle ul {
+	padding: 0px;
+}
+
+.itemDetailArticle li {
+	margin: 10px 0px;
+}
+
+.itemDetailArticle label {
+    margin-right: 10px;
+    width: 50px;
+    float: left;
+}
+
+.itemDetailArticle input{
+	margin: 50px 0px;
+	font-family: FontAwesome;
+	border-radius: 5px;
+	width: 300px;
+	padding: 10px;
+	background-color: #30499B;
+	font-size: 15px;
+	color: #fff;
+}
+
+.itemDetailArticle input:hover {
+		transition: 0.3s ;
+	border: solid 1px #32353A;
+	background-color: #fff;
+	color: #32353A;
+}
+
+
+/* カート */
+
+
+
+
+.cartImg img {
+	width: 150px;
+}
+
+.cartItem {
+	width: 1000px;
+}
+
+.cartItem select {
+	width: 70px;
+	padding: 10px;
+	border: 1px solid #32353A;
+	background: url(../img/yazirusi.jpeg) no-repeat right 5px top 7px;
+	background-size: 20px;
+}
+
+.cartItem input{
+	margin: 0px;
+	font-family: FontAwesome;
+	border-radius: 5px;
+	padding: 10px;
+	background-color: #32353A;
+	font-size: 12px;
+	color: #fff;
+}
+
+.button {
+	width: 150px;
+	border-radius: 5px;
+	padding: 5px;
+	background-color: #30499B;
+	color: #fff;
+	text-align: center;
+	margin: 5px 0px;
+}
+
+.buyButton input{
+	margin: 0px;
+	font-family: FontAwesome;
+	border-radius: 5px;
+	padding: 10px;
+	background-color: #30499B;
+	font-size: 15px;
+	color: #fff;
+}
+
+
+
+.sum th{
+	font-size:20px;
+}
+
+.sum td{
+	font-size:20px;
+}
+
+
+/* フォームの装飾 */
+
+.contactH2 {
+	display:block;
+	width: 200px;
+	margin:30px auto;
+}
+
+.ask ul {
+	padding: 0px;
+	width:600px;
+	margin:0px auto;
+}
+
+.ask li {
+	margin: 10px 0px;
+}
+
+.ask label {
+    margin: 5px;
+    width: 150px;
+    float: left;
+}
+
+.ask input{
+	margin: 5px;
+	font-family: FontAwesome;
+	border: solid 1px #32353A;
+	border-radius: 5px;
+	width: 200px;
+	padding: 2px;
+	font-size: 12px;
+}
+
+input[type="textarea"] {
+	property: value;
+		margin: 0px;
+	font-family: FontAwesome;
+	border: solid 1px #32353A;
+	border-radius: 5px;
+	width:400px;
+	height: 200px;
+	padding: 2px;
+	font-size: 12px;
+}
+
+.ask input[type="submit"] {
+	margin: 50px 0px;
+	font-family: FontAwesome;
+	border-radius: 5px;
+	width: 300px;
+	padding: 10px;
+	background-color: #30499B;
+	font-size: 15px;
+	color: #fff;
+
+}
+
+/* .ask input:hover {
+		transition: 0.3s ;
+	border: solid 1px #32353A;
+	background-color: #fff;
+	color: #32353A;
+} */
+
+
+/* ユーザー登録 */
+.userTable p {
+	display: block;
+	width: 300px;
+	margin: 10px auto;
+	text-align: center;
+}
+
+.userTable h2 {
+	display: block;
+	width: 200px;
+	text-align: center;
+	margin: 20px auto;
+}
+
+.userTable table{
+	width:600px;
+	margin: 0 auto;
+}
+
+.userTable th {
+	padding: 10px;
+	width:150px;
+	text-align: right;
+	font-weight: normal;
+}
+
+.userTable span {
+	display: block;
+	font-size: 8px;
+		line-height: 12px;
+}
+
+.userTable input{
+	margin: 5px;
+	font-family: FontAwesome;
+	border: solid 1px #32353A;
+	border-radius: 5px;
+	width: 300px;
+	padding: 2px;
+	font-size: 12px;
+}
+
+.userTable select {
+	width: 50%;
+	padding: 5px;
+	border: 1px solid #32353A;
+	border-radius: 5px;
+	background: url(../img/yazirusi.jpeg) no-repeat right 5px top 3px;
+	background-size: 20px;
+}
+
+.userTable input[type="submit"] {
+	display: block;
+	margin: 50px auto;
+	font-family: FontAwesome;
+	border-radius: 5px;
+	width: 150px;
+	padding: 10px;
+	background-color: #30499B;
+	font-size: 15px;
+	color: #fff;
+}
+
+.userTable input[type="submit"]:hover {
+		transition: 0.3s ;
+	border: solid 1px #32353A;
+	background-color: #fff;
+	color: #32353A;
+}
+
+
+/* 商品管理画面 */
+
+.toolView h1 {
+	display: block;
+	width: 200px;
+	font-weight: normal;
+	text-align: center;
+	margin: 20px auto;
+	font-size: 21px;
+}
+
+.toolView {
+	width: 1400px;
+	margin: 20px;
+}
+
+.toolTable img {
+	width: 100px;
+}
+
+
+
+.toolTable tr, th, td{
+	padding: 10px;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+.toolTableBack, .userToolBack{
+	background-color: #DAEBF4;
+}
+
+.userToolBack2 {
+	background-color: #FFFFE7;
+}
+
+.toolTable select {
+	width: 70px;
+	padding: 5px;
+	border: 1px solid #32353A;
+	border-radius: 5px;
+	background: url(../img/yazirusi.jpeg) no-repeat right 5px top 3px;
+	background-size: 20px;
+}
+
+.toolTable input[type="text"],[type="number"]{
+	margin: 5px;
+	font-family: FontAwesome;
+	border: solid 1px #32353A;
+	border-radius: 5px;
+	width: 80px;
+	padding: 2px;
+	font-size: 12px;
+}
+
+.toolTable input[type="submit"] {
+	display: block;
+	margin: 0px auto;
+	font-family: FontAwesome;
+	border-radius: 5px;
+	width: 100px;
+	padding: 5px;
+	background-color: #30499B;
+	font-size: 15px;
+	color: #fff;
+}
+
+
+.toolTable input[type="textarea"]{
+	margin: 5px;
+	font-family: FontAwesome;
+	border: solid 1px #32353A;
+	border-radius: 5px;
+	width: 500px;
+	height: 100px;
+	padding: 2px;
+	font-size: 12px;
+}
+
+.toolTable input[type="submit"]:hover {
+		transition: 0.3s ;
+	border: solid 1px #32353A;
+	background-color: #fff;
+	color: #32353A;
+}
+
+footer {
+	text-align: center;
+}

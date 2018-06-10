@@ -1,0 +1,11 @@
+
+h2{
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.newItem img{
+	width: 200px;
+}
+.newItem td {
+	width: 250px;
+}

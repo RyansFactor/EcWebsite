@@ -1,0 +1,74 @@
+main {
+	padding: 72px 0px;
+}
+
+/* ユーザー登録 */
+.userTable p {
+	display: block;
+	width: 300px;
+	margin: 10px auto;
+	text-align: center;
+}
+
+.userTable h2 {
+	display: block;
+	width: 200px;
+	text-align: center;
+	margin: 20px auto;
+}
+
+.userTable table{
+	width:600px;
+	margin: 0 auto;
+}
+
+.userTable th {
+	padding: 10px;
+	width:150px;
+	text-align: right;
+	font-weight: normal;
+}
+
+.userTable span {
+	display: block;
+	font-size: 8px;
+		line-height: 12px;
+}
+
+.userTable input{
+	margin: 5px;
+	font-family: FontAwesome;
+	border: solid 1px #32353A;
+	border-radius: 5px;
+	width: 300px;
+	padding: 2px;
+	font-size: 12px;
+}
+
+.userTable select {
+	width: 50%;
+	padding: 5px;
+	border: 1px solid #32353A;
+	border-radius: 5px;
+	background: url(../../img/yazirusi.jpeg) no-repeat right 5px top 3px;
+	background-size: 20px;
+}
+
+.userTable input[type="submit"] {
+	display: block;
+	margin: 50px auto;
+	font-family: FontAwesome;
+	border-radius: 5px;
+	width: 150px;
+	padding: 10px;
+	background-color: #30499B;
+	font-size: 15px;
+	color: #fff;
+}
+
+.userTable input[type="submit"]:hover {
+		transition: 0.3s ;
+	border: solid 1px #32353A;
+	background-color: #fff;
+	color: #32353A;
+}

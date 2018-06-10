@@ -1,0 +1,88 @@
+main {
+	padding: 72px 0px;
+}
+
+
+H2 {
+	display:block;
+	width: 200px;
+	margin:20px auto;
+	text-align: center;
+}
+
+
+.cartImg img {
+	width: 150px;
+}
+
+.cartItem {
+	width: 1000px;
+}
+
+
+.cartItem tr, th, td{
+	padding: 10px;
+	font-weight: normal;
+}
+
+.userToolBack{
+	background-color: #DAEBF4;
+}
+
+.cartItem select {
+	width: 70px;
+	padding: 10px;
+	border: 1px solid #32353A;
+	background: url(../../img/yazirusi.jpeg) no-repeat right 5px top 7px;
+	background-size: 20px;
+}
+
+.cartItem input{
+	margin: 0px;
+	font-family: FontAwesome;
+	border-radius: 5px;
+	padding: 10px;
+	background-color: #32353A;
+	font-size: 12px;
+	color: #fff;
+}
+
+.button {
+	width: 120px;
+	border-radius: 5px;
+	padding: 5px;
+	background-color: #30499B;
+	color: #fff;
+	text-align: center;
+	margin: 5px 0px;
+	font-size: 12px;
+}
+
+.buyButton input{
+	margin: 0px;
+	font-family: FontAwesome;
+	border-radius: 5px;
+	padding: 10px;
+	background-color: #30499B;
+	font-size: 15px;
+	color: #fff;
+}
+
+
+input:hover {
+		transition: 0.3s ;
+	width: 125px;
+	height: 43px;
+	border: solid 1px #32353A;
+	background-color: #fff;
+	color: #32353A;
+}
+
+.sum th{
+	font-size:20px;
+	font-weight: normal;
+}
+
+.sum td{
+	font-size:20px;
+}

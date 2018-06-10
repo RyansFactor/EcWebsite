@@ -1,0 +1,154 @@
+.itemFlex {
+	display:flex;
+	padding: 72px 0px;
+}
+
+nav {
+	flex: 125;
+}
+
+article {
+	flex: 875;
+}
+
+
+.itemDetail {
+	display: flex;
+		padding: 15px;
+}
+
+
+.itemDetail img {
+	width: 500px;
+}
+
+.itemImg {
+	flex: 420;
+}
+
+
+
+
+.itemDetailArticle {
+	flex: 400;
+	margin: 0px 0px 0px 30px;
+}
+
+.itemDetailArticle {
+		line-height: 30px;
+	font-size: 14px;
+}
+
+.itemDetailArticle h2 {
+	font-weight: bold;
+}
+
+.price {
+	font-size: 20px;
+}
+
+/* フォームの装飾 */
+select {
+	width: 50%;
+	padding: 10px;
+	border: 1px solid #32353A;
+	background: url(../../img/yazirusi.jpeg) no-repeat right 5px top 7px;
+	background-size: 20px;
+}
+
+.itemDetailArticle ul {
+	padding: 0px;
+}
+
+.itemDetailArticle li {
+	margin: 10px 0px;
+}
+
+.itemDetailArticle label {
+    margin-right: 10px;
+    width: 50px;
+    float: left;
+}
+
+.itemDetailArticle input{
+	margin: 50px 0px;
+	font-family: FontAwesome;
+	border-radius: 5px;
+	width: 300px;
+	padding: 10px;
+	background-color: #30499B;
+	font-size: 15px;
+	color: #fff;
+}
+
+input:hover {
+		transition: 0.3s ;
+	border: solid 1px #32353A;
+	background-color: #fff;
+	color: #32353A;
+}
+
+
+/* ITEMページ左のcolor検索バー */
+nav h2 {
+	width: 100px;
+	margin: 20px;
+	font-family: 'Josefin Sans', sans-serif;
+	transform: rotate(-45deg);
+	font-size: 30px;
+}
+
+.colorSearch {
+	margin: 0px 50px;
+}
+
+nav ul {
+	margin:0px;
+	padding: 0px;
+}
+
+.colorSearch i {
+	font-size: 20px;
+	padding: 5px;
+}
+
+.colorSearch a:hover {
+	opacity: 0.5;
+}
+
+.black {
+	color: #000000;
+}
+
+.gray {
+	color: #B5B5B6;
+}
+
+.red {
+	color: #D52D00;
+}
+
+.pink {
+	color: #DA79AD
+}
+
+.orange {
+	 color: #F39800;
+}
+
+.yellow {
+	color: yellow;
+}
+
+.green {
+	color: #009944;
+}
+
+.lightblue {
+	color: #00A0E9;
+}
+
+.blue {
+	color: #1D2088
+}
+

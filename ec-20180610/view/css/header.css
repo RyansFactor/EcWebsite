@@ -1,0 +1,133 @@
+input, button, textarea,select{
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+
+body {
+    font-family: "Hiragino Kaku Gothic Pro", "メイリオ", "sans-serif";
+    width: 1000px;
+    margin: 0px auto;
+    color: #32353A;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+  color: #32353A;
+  }
+
+a:link {
+color: #32353A;
+}
+
+ul {
+	list-style-type: none;
+}
+
+h2 {
+	font-weight: normal;
+}
+
+table, th, tr, td {
+	border:none;
+}
+
+/* /////全体のheaderの設定 /////*/
+
+
+.headerFixed {
+	position: fixed;  /*ヘッダーを固定 */
+	z-index:1;  /*重なりを最前面にする*/
+	width: 1000px;
+}
+
+ header {
+	padding: 0px 0px;
+	display: flex;
+	background-color: #fff;
+}
+
+/* メニューボタンの設定 */
+.menu {
+	margin: auto 0px auto 114px;
+}
+
+header ul {
+	width: 580px;
+	margin: auto 0px;
+	padding: 0px;
+	display: flex;
+	align-items: center;
+}
+
+header li {
+	flex:1;
+	text-align: center;
+	margin-top: 5px;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 15px;
+}
+
+.menu a{
+	display: block;
+	padding: 10px;
+}
+
+.menu a:hover {
+	transition: 0.3s ;
+	background: silver;/*背景色をシルバーに*/
+	color: #ffffff;
+  }
+
+.printName {
+	width: 150px;
+	margin: auto 10px;
+	text-align: right;
+	font-size: 13px;
+}
+
+
+  /* 右のアイコンの設定 */
+  .icon {
+	margin: auto 0px;
+}
+.icon i{
+	font-size: 20px;
+	padding: 2px;
+}
+
+.icon a:hover {
+	opacity: 0.8;
+}
+
+.drop li{
+	position: relative;
+}
+
+.dropSub li{
+	position:absolute;
+	padding:10px;
+	background-color: gray;
+}
+
+.dropSub a {
+	display: block;
+}
+
+.dropSub a:hover {
+	opacity: 0.8;
+}
+
+footer {
+	text-align: center;
+}

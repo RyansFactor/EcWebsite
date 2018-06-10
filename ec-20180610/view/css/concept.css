@@ -1,0 +1,35 @@
+
+.concept {
+	width: 1000px;
+	height: 1500px;
+	background-image: url(../../img/concept_03.jpg);
+	/* 背景画像を真ん中に、上から95pxの位置に配置 */
+	background-position : 50% 95px;
+  	background-repeat: no-repeat;
+  	background-attachment: fixed;
+}
+
+.conceptComment {
+	position: relative;
+	z-index:0;  /* position指定するとボックスのレイヤーが自動で指定されてしまうので、これでヘッダーより背面にする */
+	padding: 10px;
+    top: 270px;
+	width: 450px;
+	line-height: 30px;
+	font-size: 14px;
+/* 	背景だけ透明化している */
+	background-color: rgba(255,255,255,0.5)
+}
+
+H2{
+	margin: 0px;
+	width:400px;
+	position: relative;
+	z-index:0;
+    top: 190px;
+    left: 550px;
+	font-family: "Sawarabi Mincho";
+	line-height: 200%;
+	font-weight: lighter;
+	font-size:25px;
+}
