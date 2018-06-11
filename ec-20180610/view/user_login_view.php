@@ -44,11 +44,12 @@
 
 		<div class="userTable">
 		<h2>ログイン</h2>
+		<?php print $errorMessage; ?>
 			<form method="post">
 			<table>
 				<tr>
 					<th>メールアドレス</th>
-					<td><input type="email" name="email" value=""></td>
+					<td><input type="email" name="userId" value=""></td>
 				</tr>
 				<tr>
 					<th>パスワード</th>
