@@ -73,23 +73,28 @@ class UserLoginModel
     public function select(UserLogin $userLogin) {
         $result = array();
 
-        $sql = 'SELECT user_id, password FROM users WHERE user_id = $userId AND password = $password';
+        $sql = 'SELECT user_id, password FROM users WHERE user_id = ? AND password = ?';
 
         try {
+            //実行準備
             $stmt = $this->dbh->prepare($sql);
+
+            //バインド
+            $stmt->bindValue(1, $userId, PDO::PARAM_STR);
+            $stmt->bindValue(2, $password, PDO::PARAM_STR);
 
             // SQLを実行
             $stmt->execute();
             //レコードの取得
             $rows = $stmt->fetchAll();
             // 取得したデータを保存する
-            foreach ($rows as $row) {
-                $userLogin = new UserLogin();
-                $userLogin->setUserId($row['user_id']);
-                $userLogin->setPassword($row['password']);
+             foreach ($rows as $row) {
+                 $userLogin = new UserLogin();
+                 $userLogin->setUserId($row['user_id']);
+                 $userLogin->setPassword($row['password']);
 
-                // 結果を返す配列に保存
-                $result[] = $userLogin;
+                  //結果を返す配列に保存
+                 $result[] = $userLogin;
 
 
 
