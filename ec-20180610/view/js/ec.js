@@ -1,9 +1,9 @@
 $(function(){
 	$("ul.dropSub").hide();
 	$("ul.drop li") .hover(function(){
-		$("ul:not(:animated)", this).slideDown("fast");
+		$("ul:not(:animated)", this).slideDown("slow");
 	},
 	function(){
-		$("ul", this).slideUp("fast");
+		$("ul", this).slideUp("slow");
 	});
 });
