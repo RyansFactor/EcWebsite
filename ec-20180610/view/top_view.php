@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <title>Tee</title>
 <!--リセットは上に書く-->
-<link rel="styeleshet" href="html5reset-1.6.1(1).css">
-<link rel="stylesheet" href="../view/css/header.css">
-<link rel="stylesheet" href="../view/css/top.css">
+<link rel="styeleshet" href="html5reset-1.6.1.css">
+<link rel="stylesheet" href="view/css/header.css">
+<link rel="stylesheet" href="view/css/top.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -29,7 +29,7 @@
 		</ul>
 		</div>
 		<div class="printName">
-			○○ ○○○ 様
+			<?php print $userName.'様'; ?>
 		</div>
 		<div class="icon">
 

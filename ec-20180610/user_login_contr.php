@@ -42,21 +42,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $model = new UserLoginModel($dbh);
 
             //セレクトでとりだし
-            $model->select($userLogin);
+            $rows = $model->select($userLogin);
 
-
-            $userId = $row['user_id'];
-            $password = $row['password'];
-
-            if ($_POST['userId'] === $userId && $_POST['password'] === $password) {
-                $_SESSION["NAME"] = $userId;
-                header("Location: view/top_view.php");  // メイン画面へ遷移
+            //ろぐいんできた
+            if($rows !== FALSE) {
+                session_start();
+                $_SESSION["userId"] = $userId;
+                $_SESSION["name"] = $rows[0]->getName();
+                header("Location: top.php");  // メイン画面へ遷移
             }else {
                 // 認証失敗
                 $errorMessage = "ユーザIDあるいはパスワードに誤りがあります。";
             }
 
-            $result_msg = 'メッセージを送信しました';
+
+
+
+
 
 //             default:
 //                 http_response_code(400);
