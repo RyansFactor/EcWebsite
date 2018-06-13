@@ -11,9 +11,10 @@
 </head>
 
 <body class="toolView">
+<input type="hidden" name="itemInsert" value="">
 <h1>商品管理画面</h1>
-
-
+<?php print $result_msg; ?>
+<form method="POST">
 <table class="toolTable">
       <tr class="toolTableBack">
         <th>商品画像1</th>
@@ -75,6 +76,7 @@
       <td colspan="8">コメントコメントコメントコメント</td>
       </tr>
 </table>
+</form>
 </body>
 </html>
 </html>

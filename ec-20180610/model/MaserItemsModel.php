@@ -32,7 +32,7 @@ class MasterItemsModel
      * @param Items $items
      * @return boolean|string
      */
-    public function insert(ItemsModel $itemsModel)
+    public function insert(Items $items)
     {
         // SQL文を作成
         $sql = 'INSERT INTO items (name,price,img1,img2,status,size,color,comment,create_datetime,update_datetime ) VALUES ( ?,?,?,?,?,?,?,?,NOW(),NOW())';
@@ -40,21 +40,21 @@ class MasterItemsModel
             // SQL文を実行する準備
             $stmt = $this->dbh->prepare($sql);
             // プレースホルダに ステータス をバインド
-            $stmt->bindValue(1, $itemsModel->getName(), PDO::PARAM_STR);
+            $stmt->bindValue(1, $items->getName(), PDO::PARAM_STR);
             // プレースホルダに ステータス をバインド
-            $stmt->bindValue(2, $itemsModel->getPrice(), PDO::PARAM_INT);
+            $stmt->bindValue(2, $items->getPrice(), PDO::PARAM_INT);
             // プレースホルダに ステータス をバインド
-            $stmt->bindValue(3, $itemsModel->getImg1(), PDO::PARAM_STR);
+            $stmt->bindValue(3, $items->getImg1(), PDO::PARAM_STR);
             // プレースホルダに ステータス をバインド
-            $stmt->bindValue(4, $itemsModel->getImg2(), PDO::PARAM_STR);
+            $stmt->bindValue(4, $items->getImg2(), PDO::PARAM_STR);
             // プレースホルダに ステータス をバインド
-            $stmt->bindValue(5, $itemsModel->getStatus(), PDO::PARAM_INT);
+            $stmt->bindValue(5, $items->getStatus(), PDO::PARAM_INT);
             // プレースホルダに ステータス をバインド
-            $stmt->bindValue(6, $itemsModel->getSize(), PDO::PARAM_INT);
+            $stmt->bindValue(6, $items->getSize(), PDO::PARAM_INT);
             // プレースホルダに ステータス をバインド
-            $stmt->bindValue(7, $itemsModel->getColor(), PDO::PARAM_INT);
+            $stmt->bindValue(7, $items->getColor(), PDO::PARAM_INT);
             // プレースホルダに ステータス をバインド
-            $stmt->bindValue(8, $itemsModel->getComment(), PDO::PARAM_INT);
+            $stmt->bindValue(8, $items->getComment(), PDO::PARAM_INT);
             // SQLを実行
             $stmt->execute();
             // 追加できたのでIDを取得
