@@ -8,10 +8,10 @@ require_once 'model/MaserItemsModel.php';
 // 変数初期化
 $sql_kind = "";
 $result_msg = "";
-$name = "";
-$email = "";
-$tel = "";
-$comment = "";
+
+//アップロードした画像ファイルの保存場所
+$img_dir = './img/';
+
 // はじめにインスタンス作る
 $items = new Items();
 
@@ -38,20 +38,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //取得と検査
             $name = stringParam($_POST['name'], 1, 1, 20);
             $items->setName($name);
+
             $price = stringParam($_POST['price'], 2, 1, 100);
+            $price = numberParam($price, 1, 1, 10);
             $items->setPrice($price);
-            $img1 = stringParam($_POST['img1'], 1, 1, 100);
+
+            $img1 = upLoadFile('img1', $img_dir, 100);
             $items->setImg1($img1);
-            $img2 = stringParam($_POST['img2'], 1, 1, 100);
+
+            $img2 = uploadFile('img2', $img_dir, 100);
             $items->setImg2($img2);
+
             $status = stringParam($_POST['status'], 0, 1, 100);
             $items->setStatus($status);
+
             $size = stringParam($_POST['size'], 1, 1, 100);
             $items->setSize($size);
+
             $color = stringParam($_POST['color'], 1, 1, 100);
             $items->setColor($color);
+
             $comment = stringParam($_POST['comment'], 1, 1, 100);
             $items->setComment($comment);
+
+
 
 
 

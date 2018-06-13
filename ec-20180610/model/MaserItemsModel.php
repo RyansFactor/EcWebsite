@@ -35,8 +35,9 @@ class MasterItemsModel
     public function insert(Items $items)
     {
         // SQL文を作成
-        $sql = 'INSERT INTO items (name,price,img1,img2,status,size,color,comment,create_datetime,update_datetime ) VALUES ( ?,?,?,?,?,?,?,?,NOW(),NOW())';
-        try {
+        $sql = 'INSERT INTO items (name,price,img1,img2,status,size,color,item_comment,create_datetime,update_datetime)
+VALUES (?,?,?,?,?,?,?,?,NOW(),NOW())';
+            try {
             // SQL文を実行する準備
             $stmt = $this->dbh->prepare($sql);
             // プレースホルダに ステータス をバインド
@@ -50,17 +51,17 @@ class MasterItemsModel
             // プレースホルダに ステータス をバインド
             $stmt->bindValue(5, $items->getStatus(), PDO::PARAM_INT);
             // プレースホルダに ステータス をバインド
-            $stmt->bindValue(6, $items->getSize(), PDO::PARAM_INT);
+            $stmt->bindValue(6, $items->getSize(), PDO::PARAM_STR);
             // プレースホルダに ステータス をバインド
-            $stmt->bindValue(7, $items->getColor(), PDO::PARAM_INT);
+            $stmt->bindValue(7, $items->getColor(), PDO::PARAM_STR);
             // プレースホルダに ステータス をバインド
-            $stmt->bindValue(8, $items->getComment(), PDO::PARAM_INT);
+            $stmt->bindValue(8, $items->getComment(), PDO::PARAM_STR);
             // SQLを実行
             $stmt->execute();
             // 追加できたのでIDを取得
             $item_id = $this->dbh->lastInsertId('item_id');
             // drink_idを保存
-            $itemsModel->setId($item_id);
+            $items->setItem_id($item_id);
         } catch (PDOException $e) {
             // エラーが発生
             $this->error = $e->getMessage();
