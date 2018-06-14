@@ -42,24 +42,27 @@ table, th, tr, td {
 	border:none;
 }
 
+
 /* /////全体のheaderの設定 /////*/
 
 
 .headerFixed {
 	position: fixed;  /*ヘッダーを固定 */
 	z-index:1;  /*重なりを最前面にする*/
-	width: 1000px;
 }
 
  header {
 	padding: 0px 0px;
 	display: flex;
 	background-color: #fff;
+	max-width: 1000px;
+	max-height: 72px;
 }
 
 /* メニューボタンの設定 */
 .menu {
-	margin: auto 0px auto 114px;
+    width: 580px;
+	margin: auto;
 }
 
 .menu ul {
@@ -96,12 +99,10 @@ table, th, tr, td {
 	font-size: 13px;
 }
 
-
   /* 右のアイコンの設定 */
-  .icon {
-	margin: auto 0px;
-}
-.icon i{
+
+
+header i{
 	font-size: 20px;
 	padding: 2px;
 }
@@ -110,24 +111,18 @@ table, th, tr, td {
 	opacity: 0.8;
 }
 
-.drop {
-    margin: 0px;
-    padding: 5px 0px 5px 50px;
+.cartIcon {
+    width: 50px;
+    margin: auto;
+    }
+
+.dropMenu {
+    width: 200px;
 }
 
-.dropSub ul{
-	position:absolute;
-	z-index:2;
-	top: 55px;
-	right: 40px;
-	margin:0;
+.drop ul{
+	margin: 0px;
 	padding: 0px;
-
-}
-
-.dropSub li{
-    padding: 5px 10px;
-    margin: 0;
 }
 
 .dropSub a {
@@ -139,6 +134,11 @@ table, th, tr, td {
 
 .dropSub a:hover {
 	opacity: 0.8;
+}
+
+.userIcon {
+    width:150px;
+    margin: 0px;
 }
 
 footer {

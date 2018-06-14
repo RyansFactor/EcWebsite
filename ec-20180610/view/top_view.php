@@ -13,8 +13,13 @@
 	crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans"
 	rel="stylesheet">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<script type="text/javascript"
+	src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+ <!--ドロップダウンメニューのJquery -->
+ <script
+ 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="./view/js/ec.js"></script>
 </head>
 
@@ -34,27 +39,27 @@
 				</ul>
 			</div>
 			<div class="printName">
-			<?php print $userName.'様'; ?>
+			<?php print $userName.'様';?>
 		</div>
-			<div class="icon">
 
+                <div class="cartIcon">
 				<a href="./cart_contr.php"><i class="fas fa-shopping-cart"></i></a>
+				</div>
+				<div class="dropMenu">
+					<ul class="drop">
+						<li class="userIcon"><a href="./user_contr.php"><i class="fas fa-user-circle"></i></a>
 
-				<ul class="drop">
-					<li><a href="./user_contr.php"><i class="fas fa-user-circle"></i></a>
+							<ul class="dropSub">
+								<li><a href="./user_contr.php">新規会員登録</a></li>
+								<li><a href="./user_change_contr.php">会員情報変更</a></li>
+								<li><a href="./user_login_contr.php">ログイン</a></li>
+								<li><form method="POST">
+										<input type="submit" name="submit" value="ログアウト">
+									</form></li>
+							</ul></li>
+					</ul>
+				</div>
 
-						<ul class="dropSub">
-							<li><a href="#">新規会員登録</a></li>
-							<li><a href="#">会員情報変更</a></li>
-							<li><a href="#">ログイン</a></li>
-							<li><form method="POST">
-									<input type="submit" name="submit" value="ログアウト">
-								</form>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
 
 
 		</header>
@@ -62,25 +67,32 @@
 
 
 	<main class="topMain">
-	<div>
-		<img src="./img/top.jpg">
-	</div>
-	<h2>NEW ITEM</h2>
-	<div class="newItem">
-		<table>
+	<div class="slide">
+		<div class="slideSub">
+			<div>
+				<img src="./img/top.jpg">
+			</div>
+			<div>2</div>
+			<div>3</div>
+			</div>
+		</div>
+		<h2>NEW ITEM</h2>
+		<div class="newItem">
+			<table>
 
-			<tr>
-				<td><img src="./img/121409642_o1.jpg"></td>
-				<td><img src="./img/121409642_o1.jpg"></td>
-				<td><img src="./img/121409642_o1.jpg"></td>
-				<td><img src="./img/121409642_o1.jpg"></td>
-			</tr>
+				<tr>
+					<td><img src="./img/121409642_o1.jpg"></td>
+					<td><img src="./img/121409642_o1.jpg"></td>
+					<td><img src="./img/121409642_o1.jpg"></td>
+					<td><img src="./img/121409642_o1.jpg"></td>
+				</tr>
 
-		</table>
-	</div>
-	<div>
-		<h2>INSTA</h2>
-	</div>
+			</table>
+		</div>
+		<div>
+			<h2>INSTA</h2>
+		</div>
+
 	</main>
 
 	<footer>
