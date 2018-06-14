@@ -1,7 +1,9 @@
 <?php
 
 // 商品クラス
-require_once 'ItemsModel.php';
+require_once 'model/Items.php';
+require_once 'model/StockModel.php';
+
 
 
 
@@ -82,8 +84,7 @@ VALUES (?,?,?,?,?,?,?,?,NOW(),NOW())';
     {
         $result = array();
         // すべての商品を取得
-        $sql = 'SELECT items.item_id, name, price, img1, img2, status, size, color, comment, stock.stock AS stock ' .
-            'FROM items LEFT JOIN stock ON ( items.item_id = stock.item_id ) ';
+        $sql = 'SELECT items.item_id, name, price, img1, img2, status, size, color, item_comment, stock.stock FROM items LEFT JOIN stock ON items.item_id = stock.item_id';
 
         try {
             // SQL文を実行する準備
@@ -94,19 +95,20 @@ VALUES (?,?,?,?,?,?,?,?,NOW(),NOW())';
             $rows = $stmt->fetchAll();
             // 取得したデータを商品として保存する
             foreach ($rows as $row) {
-                $itemsModel = new ItemsModel();
-                $itemsModel->setId($row['item_id']);
-                $itemsModel->setName($row['name']);
-                $itemsModel->setPrice($row['price']);
-                $itemsModel->setImg1($row['img1']);
-                $itemsModel->setImg2($row['img2']);
-                $itemsModel->setStatus($row['status']);
-                $itemsModel->setSize($row['size']);
-                $itemsModel->setColor($row['color']);
-                $itemsModel->setComment($row['comment']);
-                $itemsModel->setStock($row['stock']);
+                //データベースから取得した値をいれたインスタンスを作成
+                $items = new Items();
+                $items->setItem_id($row['item_id']);
+                $items->setName($row['name']);
+                $items->setPrice($row['price']);
+                $items->setImg1($row['img1']);
+                $items->setImg2($row['img2']);
+                $items->setStatus($row['status']);
+                $items->setSize($row['size']);
+                $items->setColor($row['color']);
+                $items->setComment($row['item_comment']);
+                $items->setStock($row['stock']);
                 // 結果を返す配列に保存
-                $result[] = $itemsModel;
+                $result[] = $items;
             }
         } catch (PDOException $e) {
             // エラーが発生
@@ -209,25 +211,25 @@ VALUES (?,?,?,?,?,?,?,?,NOW(),NOW())';
      * @param Items $items
      * @return boolean
      */
-//     public function insertItem(Items $items)
-//     {
-//         // トランザクション開始
-//         $this->dbh->beginTransaction();
-//         // drink_master テーブルに追加する
-//         if ($this->insert($items) !== false) {
-//             $ds = new DrinkStockModel($this->dbh);
-//             // drink_stock テーブルに追加する
-//             if ($ds->insert($items) !== false) {
-//                 // コミット処理
-//                 $this->dbh->commit();
+    public function insertItems(Items $items)
+    {
+        // トランザクション開始　itemsのテーブルとstockのテーブル両方同時に情報が追加されるようにする
+        $this->dbh->beginTransaction();
+        // 上記のitemsテーブルに商品を追加するinsertが正常であれば、items テーブルに在庫を追加する
+        if ($this->insert($items) !== false) {
+            //新しく在庫追加するようのインスタンスをつくる
+            $ds = new StockModel($this->dbh);
+            // 上のStockModelクラスのinsertが正常であればstock テーブルに追加する
+            if ($ds->insert($items) !== false) {
+                // コミット処理
+                $this->dbh->commit();
 
-//                 return true;
-//             }
-//             // ロールバック処理
-//             $this->dbh->rollback();
-//         }
-//         return false;
-//     }
+                return true;
+            }
+            // ロールバック処理 うまくいかなかったらどちらのテーブルにも商品を追加しない
+            $this->dbh->rollback();
+        }
+        return false;
+    }
 
- }
-
+}

@@ -4,6 +4,8 @@
 require_once 'model/function.php';
 require_once 'model/Items.php';
 require_once 'model/MaserItemsModel.php';
+require_once 'model/StockModel.php';
+
 
 // 変数初期化
 $sql_kind = "";
@@ -55,6 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $size = stringParam($_POST['size'], 1, 1, 100);
             $items->setSize($size);
 
+            $stock = stringParam($_POST['stock'], 1, 1, 10000);
+            $stock = numberParam($stock, 1, 1, 1000);
+            $items->setStock($stock);
+
             $color = stringParam($_POST['color'], 1, 1, 100);
             $items->setColor($color);
 
@@ -65,11 +71,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-            //モデルの生成　MuSQLの
+            //モデルの生成
             $model = new MasterItemsModel($dbh);
 
-            //テーブルに追加する
-            $model->insert($items);
+            //テーブルに追加する　これはitemテーブル、stockテーブル両方に情報が追加されるようにトランザクションがかいてあるメソッド
+            $model->insertItems($items);
 
             $result_msg = '商品を追加しました';
             break;
@@ -99,7 +105,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-
+// 商品一覧を取得
+$model = new MasterItemsModel($dbh);
+$data = $model->findAll();
 
 
 include './view/tool_view.php' ;

@@ -1,7 +1,7 @@
 <?php
 
 // 商品クラス
-require_once 'ItemsModel.php';
+require_once 'Items.php';
 
 /**
  * stock テーブルのモデル
@@ -31,7 +31,7 @@ class StockModel
      * @param ItemsModel $items
      * @return boolean|number
      */
-    public function insert(ItemsModel $itemsModel)
+    public function insert(Items $items)
     {
         // SQL文を作成
         $sql = 'INSERT INTO stock (item_id, stock, create_datetime,update_datetime ) VALUES ( ?,?,NOW(),NOW())';
@@ -39,9 +39,9 @@ class StockModel
             // SQL文を実行する準備
             $stmt = $this->dbh->prepare($sql);
             // プレースホルダに ステータス をバインド
-            $stmt->bindValue(1, $itemsModel->getId(), PDO::PARAM_STR);
+            $stmt->bindValue(1, $items->getItem_id(), PDO::PARAM_STR);
             // プレースホルダに ステータス をバインド
-            $stmt->bindValue(2, $itemsModel->getStock(), PDO::PARAM_INT);
+            $stmt->bindValue(2, $items->getStock(), PDO::PARAM_INT);
             // SQLを実行
             $stmt->execute();
         } catch (PDOException $e) {
@@ -50,7 +50,7 @@ class StockModel
             return false;
         }
         // 正常終了
-        return $items->getId();
+        return $items->getItem_id();
     }
 
     /**
