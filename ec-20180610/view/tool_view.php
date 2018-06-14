@@ -83,8 +83,14 @@
 				<td><input type="number" name="updatePrice" value="<?php echo $items->getStock(); ?>">個</td>
 				<td><?php echo $items->getColor(); ?></td>
 				<td>
-						<option value="0">非公開</option>
-						<option value="1">公開</option></td>
+				<?php if ($items->getStatus() == 0 ) { ?>
+        		<input type="submit" value="非公開 → 公開">
+<?php } else { ?>
+        		<input type="submit" value="公開 → 非公開">
+<?php } ?>
+<!-- 						<option value="0">非公開</option> -->
+<!-- 						<option value="1">公開</option> -->
+</td>
 				<td><input type="submit" value="変更"></td>
 			</tr>
 

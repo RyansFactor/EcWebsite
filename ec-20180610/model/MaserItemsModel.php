@@ -125,9 +125,7 @@ VALUES (?,?,?,?,?,?,?,?,NOW(),NOW())';
     {
         $result = array();
         // すべての商品を取得 公開のものだけ
-        $sql = 'SELECT items.item_id, name, price, img1, img2, status, size, color, comment, stock.stock AS stock ' .
-            'FROM items LEFT JOIN stock ON ( items.item_id = stock.item_id ) '.
-            'WHERE items.status = 1 ';
+        $sql = 'SELECT items.item_id, name, price, img1, img2, status, size, color, item_comment, stock.stock FROM items LEFT JOIN stock ON items.item_id = stock.item_id WHERE items.status=1';
 
         try {
             // SQL文を実行する準備
@@ -138,19 +136,19 @@ VALUES (?,?,?,?,?,?,?,?,NOW(),NOW())';
             $rows = $stmt->fetchAll();
             // 取得したデータを商品として保存する
             foreach ($rows as $row) {
-                $itemsModel = new ItemsModel();
-                $itemsModel->setId($row['item_id']);
-                $itemsModel->setName($row['name']);
-                $itemsModel->setPrice($row['price']);
-                $itemsModel->setImg1($row['img1']);
-                $itemsModel->setImg2($row['img2']);
-                $itemsModel->setStatus($row['status']);
-                $itemsModel->setSize($row['size']);
-                $itemsModel->setColor($row['color']);
-                $itemsModel->setComment($row['comment']);
-                $itemsModel->setStock($row['stock']);
+                $items = new Items();
+                $items->setItem_id($row['item_id']);
+                $items->setName($row['name']);
+                $items->setPrice($row['price']);
+                $items->setImg1($row['img1']);
+                $items->setImg2($row['img2']);
+                $items->setStatus($row['status']);
+                $items->setSize($row['size']);
+                $items->setColor($row['color']);
+                $items->setComment($row['item_comment']);
+                $items->setStock($row['stock']);
                 // 結果を返す配列に保存
-                $result[] = $itemsModel;
+                $result[] = $items;
             }
         } catch (PDOException $e) {
             // エラーが発生
@@ -158,6 +156,36 @@ VALUES (?,?,?,?,?,?,?,?,NOW(),NOW())';
         }
         return $result;
     }
+
+    /**
+     * 状態を更新する
+     *
+     * @param string $drink_id
+     * @param number $status
+     * @return boolean
+     */
+    public function updateStatus($item_id, $status)
+    {
+        // SQL文
+        $sql = 'UPDATE drink_master SET status = ? , update_datetime = NOW() WHERE drink_id = ? ';
+        try {
+            // SQL文を実行する準備
+            $stmt = $this->dbh->prepare($sql);
+            // プレースホルダに ステータス をバインド
+            $stmt->bindValue(1, $status, PDO::PARAM_INT);
+            // プレースホルダに drink_id をバインド
+            $stmt->bindValue(2, $drink_id, PDO::PARAM_STR);
+            // SQLを実行
+            $stmt->execute();
+        } catch (PDOException $e) {
+            // エラーが発生
+            $this->error = $e->getMessage();
+            return false;
+        }
+        // 正常終了
+        return true;
+    }
+
 
     /**
      * 商品をIDで検索する

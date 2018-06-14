@@ -24,13 +24,13 @@
 	<div class="headerFixed">
 		<header>
 
-			<a href="top_view.php"><img src="./img/logo.jpg"></a>
+			<a href="./top.php"><img src="./img/logo.jpg"></a>
 			<div class="menu">
 				<ul>
-					<li><a href="./concept_view.php">CONCEPT</a></li>
-					<li><a href="./news_view.php">NEWS</a></li>
-					<li><a href="../item_contr.php">ITEM</a></li>
-					<li><a href="../contact_contr.php">CONTACT</a></li>
+					<li><a href="./view/concept_view.php">CONCEPT</a></li>
+					<li><a href="./view/news_view.php">NEWS</a></li>
+					<li><a href="./item_contr.php">ITEM</a></li>
+					<li><a href="./contact_contr.php">CONTACT</a></li>
 				</ul>
 			</div>
 			<div class="printName">
@@ -38,7 +38,7 @@
 		</div>
 			<div class="icon">
 
-				<a href="../cart_contr.php"><i class="fas fa-shopping-cart"></i></a>
+				<a href="./cart_contr.php"><i class="fas fa-shopping-cart"></i></a>
 
 				<ul class="drop">
 					<li><a href="./user_contr.php"><i class="fas fa-user-circle"></i></a>

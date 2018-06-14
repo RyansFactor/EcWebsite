@@ -68,7 +68,8 @@
                     </div>
 
                     <div class="itemDetailArticle">
-                    	<h2>●●●●●●Tシャツ</h2>
+
+                    	<h2>●●●●●●Tシャツ<?php $items->getName(); ?></h2>
                         <p>Tシャツです。</p>
                         <p>いい感じのグレーのいい感じのTシャツ。</p>
                         <p><span class="price">3,000円</span>（税抜）</p>

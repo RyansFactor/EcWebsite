@@ -63,24 +63,41 @@
 
 		<article>
 			<h2>ITEM</h2>
+
 			<div class="articleItem">
-			<a href="../ec/itemDetail_contr.php">
+						<?php
+
+        foreach ($data as $items) : ?>
+        <form name="itemForm" method="POST" action="../ec/itemDetail_contr.php">
+        <button name="btn" value="<?php $items->getItem_id(); ?>">
+<!-- 			<a href="../ec/itemDetail_contr.php"> -->
 			<div class="items">
-				<img src="./img/121409642_o1.jpg">
-				<div><p>3,000yen</p></div>
+				<img src="<?php echo $items->getImg1(); ?>">
+				<div><p><?php echo $items->getPrice(); ?>yen</p></div>
 			</div>
-			</a>
-			<div class="items">
-				<img src="./img/121409642_o1.jpg">
-				<div><p>3,000yen</p></div>
-			</div>
-			<div class="items">
-				<img src="./img/121409642_o1.jpg">
-				<div><p>3,000yen</p></div>
-			</div>
+<!-- 			</a> -->
+			</button>
+			</form>
+<!-- 			<div class="items"> -->
+<!-- 				<img src="./img/121409642_o1.jpg"> -->
+<!-- 				<div><p>3,000yen</p></div> -->
+<!-- 			</div> -->
+<!-- 			<div class="items"> -->
+<!-- 				<img src="./img/121409642_o1.jpg"> -->
+<!-- 				<div><p>3,000yen</p></div> -->
+<!-- 			</div> -->
+<script>
+document.itemForm.btn.addEventListener('click', function() {
+
+    document.myform.submit();
+
+});
+</script>
+<?php endforeach; ?>
 			</div>
 
 		</article>
+
 	</div>
 	</main>
 
