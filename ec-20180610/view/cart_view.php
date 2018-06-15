@@ -57,8 +57,8 @@
 	</tr>
 
 	<tr>
-		<td class="cartImg"><img src="./img/121409642_o1.jpg"></td>
-		<td>Tシャツーー</td>
+		<td class="cartImg"><img src="<?php print $items->getImg1(); ?>"></td>
+		<td><?php print $items->getName(); ?></td>
 		<td><select name="size">
     <option value="S">S</option>
     <option value="M">M</option>
@@ -72,7 +72,7 @@
      <option value="4">4</option>
       <option value="5">5</option>
     </select></td>
-    <td>0,000円</td>
+    <td><?php print $items->getPrice(); ?>円</td>
     <td>
     <div class="button">
 	<a href="#"><i class="fas fa-times-circle"></i>
@@ -83,34 +83,7 @@
 
 <hr>
 
-<table class="cartItem">
 
-
-	<tr>
-		<td class="cartImg"><img src="./img/121409642_o1.jpg"></td>
-		<td>Tシャツーー</td>
-		<td><select name="size">
-    <option value="S">S</option>
-    <option value="M">M</option>
-    <option value="L">L</option>
-    <option value="XL">XL</option>
-    </select>
-    <td>	<select name="orderPiece">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-     <option value="4">4</option>
-      <option value="5">5</option>
-    </select></td>
-    <td>0,000円</td>
-    <td>
-    <div class="button">
-	<a href="#"><i class="fas fa-times-circle"></i>
-	商品をカートから<br>削除する</a></div>
-	<div class="button"><a href="#"><i class="fas fa-undo-alt"></i>サイズ・数量を<br>変更する</a>
-	</div>
-</table>
-<hr>
 
 <div>
 <table class="sum">

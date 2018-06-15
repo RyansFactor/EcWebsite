@@ -12,7 +12,7 @@ $sql_kind = "";
 $result_msg = "";
 
 //アップロードした画像ファイルの保存場所
-$img_dir = './img/';
+$img_dir = './img2/';
 
 // はじめにインスタンス作る
 $items = new Items();

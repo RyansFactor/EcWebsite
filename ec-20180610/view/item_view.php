@@ -18,7 +18,7 @@
 <div class="headerFixed">
 	<header>
 
-		<a href="./view/top_view.php"><img src="./img/logo.jpg"></a>
+		<a href="./top.php"><img src="./img/logo.jpg"></a>
 		<div class="menu">
 		<ul>
 			<li><a href="./view/concept_view.php">CONCEPT</a></li>
@@ -68,16 +68,15 @@
 						<?php
 
         foreach ($data as $items) : ?>
-        <form name="itemForm" method="POST" action="../ec/itemDetail_contr.php">
-        <button name="btn" value="<?php $items->getItem_id(); ?>">
-<!-- 			<a href="../ec/itemDetail_contr.php"> -->
+
+			<a href="../ec-20180610/itemDetail_contr.php?item_id=<?php echo $items->getItem_id(); ?>">
 			<div class="items">
 				<img src="<?php echo $items->getImg1(); ?>">
 				<div><p><?php echo $items->getPrice(); ?>yen</p></div>
 			</div>
-<!-- 			</a> -->
-			</button>
-			</form>
+ 			</a>
+
+
 <!-- 			<div class="items"> -->
 <!-- 				<img src="./img/121409642_o1.jpg"> -->
 <!-- 				<div><p>3,000yen</p></div> -->

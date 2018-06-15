@@ -28,7 +28,7 @@
 		</ul>
 		</div>
 		<div class="printName">
-		○○ ○○○ 様
+		<?php print $userName.'様';?>
 		</div>
 		<div class="icon">
 			<a href="./cart_contr.php"><i class="fas fa-shopping-cart"></i></a>
@@ -62,21 +62,22 @@
 		</nav>
 
 		<article>
+
 			 <div class="itemDetail">
 					<div class="itemImg">
-                    <img src="./img/121409642_o1.jpg" alt="">
+                    <img src="<?php print $items->getImg1(); ?>" alt="">
                     </div>
 
                     <div class="itemDetailArticle">
 
-                    	<h2>●●●●●●Tシャツ<?php $items->getName(); ?></h2>
-                        <p>Tシャツです。</p>
-                        <p>いい感じのグレーのいい感じのTシャツ。</p>
-                        <p><span class="price">3,000円</span>（税抜）</p>
+                    	<h2><?php print$items->getName(); ?></h2>
+                        <p><?php print $items->getComment(); ?></p>
+                        <p></p>
+                        <p><span class="price"><?php print $items->getPrice(); ?></span>（税抜）</p>
 
 
 
-                    <form method="post">
+                    <form method="get">
                     <ul>
 
                         <li>
@@ -97,7 +98,9 @@
                           <option value="5">5</option>
                         </select></li>
                         <li>
-                    	<input type="submit" name="submit" value="&#xf07a; カートに入れる">
+<!--                     	<input type="submit" name="submit" value="&#xf07a; カートに入れる"> -->
+                    	<a href="../ec-20180610/cart_contr.php?item_id=<?php echo $items->getItem_id(); ?>">
+                    	カートに入れる</a>
 						</li>
 						</ul>
                     </form>

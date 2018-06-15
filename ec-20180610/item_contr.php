@@ -5,7 +5,6 @@ require_once 'model/Items.php';
 require_once 'model/MaserItemsModel.php';
 require_once 'model/StockModel.php';
 
-$test = "sago";
 
 // データベースの接続
 $dbh = getDbConnect();
