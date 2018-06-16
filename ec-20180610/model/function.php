@@ -128,23 +128,3 @@ function getDbConnect(){
     return $dbh;
 }
 
-//10000以上のお金をいれていないかチェック
-function checkPrice($str, $code = 0) {
-    if(10000 <= $str) {
-        return $str;
-    }
-    throw new LengthExpection('1万円以上いれないで');
-}
-
-function checkChange($str, $code = 0) {
-    // お金が足りない場合
-    if( $str < $item->getPrice() ) {
-        throw new LengthExpection('お金たりない');
-    } else { //お金が足りている場合
-        // おつりの計算
-        $change = $price - $item->getPrice();
-
-    }
-
-    return $change;
-}

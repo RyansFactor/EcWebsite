@@ -38,9 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     //インスタンスsさくせい
     $model = new MasterItemsModel($dbh);
-    $itemId = $model->findById($itemId);
-
     $datas = $model->findById($itemId);
+
+
 
 
 

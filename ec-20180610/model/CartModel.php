@@ -32,7 +32,7 @@ class CartModel
     {
         // SQL文を作成
         $sql = 'INSERT INTO cart (user_id, item_id, amount, create_datetime)
-VALUES (?,?,?,?,NOW())';
+VALUES (?,?,?,NOW())';
             try {
             // SQL文を実行する準備
             $stmt = $this->dbh->prepare($sql);

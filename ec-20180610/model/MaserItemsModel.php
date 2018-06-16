@@ -119,7 +119,7 @@ VALUES (?,?,?,?,?,?,?,?,NOW(),NOW())';
 
     /**
      * 公開状態の商品を取得する
-     * @return ItemsModel[]
+     * @return
      */
     public function findStatusOn()
     {

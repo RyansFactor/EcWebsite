@@ -11,11 +11,11 @@ class Cart
     private $item_id;
     private $amount;
 
-    public function constract__(){
+    public function __construct(){
         $this->cart_id = 0;
         $this->user_id = 0;
         $this->item_id = 0;
-        $this->amount = 0;
+        $this->amount = 1;
     }
     /**
      * @return number
