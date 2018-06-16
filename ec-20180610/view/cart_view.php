@@ -48,9 +48,10 @@
 
 	<main>
 	<h2>カート</h2>
-	<form method="post">
+	<?php print $message; ?>
 
-<?php foreach ($data as $items) : ?>
+
+<?php foreach ($data as $cart) : ?>
 <table class="cartItem">
 			<tr class="userToolBack">
 				<th></th>
@@ -62,14 +63,14 @@
 			</tr>
 
 			<tr>
-				<td class="cartImg"><img src="<?php print $items->getImg1(); ?>"></td>
-				<td><?php print $items->getName(); ?></td>
-				<td><?php print $items->getSize(); ?></td>
+				<td class="cartImg"><img src="<?php print $cart->getImg1(); ?>"></td>
+				<td><?php print $cart->getName(); ?></td>
+				<td><?php print $cart->getSize(); ?></td>
 
-				<td><?php print $items->getPrice(); ?>円</td>
+				<td><?php print $cart->getPrice(); ?>円</td>
 				<td>
 					<div class="button">
-						<a href="#"><i class="fas fa-times-circle"></i> 商品をカートから<br>削除する</a>
+						<a href="../ec-20180610/cart_contr.php?cart_id=<?php echo $cart->getCart_id(); ?>"><i class="fas fa-times-circle"></i> 商品をカートから<br>削除する</a>
 					</div>
 
 
@@ -84,22 +85,25 @@
 			<table class="sum">
 				<tr>
 					<th>小計</th>
-					<td>0000円</td>
+					<td><?php print $sum; ?>円</td>
 				</tr>
 				<tr>
 					<th>消費税</th>
-					<td>0000円</td>
+					<td><?php print $tax; ?>円</td>
 				</tr>
 				<tr>
 					<th>合計</th>
-					<td>0000円</td>
+					<td><?php print $sumTax; ?>円</td>
 
 
 				<tr>
 
-					<td><div class="buyButton">
+					<td>
+					<form method="POST" action="result_contr.php">
+					<div class="buyButton">
+							<input type="hidden" name="sql_kind" value="buy">
 							<input type="submit" name="buy" value="購入を確定する">
-						</div></td>
+						</div></form></td>
 				</tr>
 
 			</table>

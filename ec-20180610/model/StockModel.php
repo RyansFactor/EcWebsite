@@ -28,7 +28,7 @@ class StockModel
 
     /**
      * 在庫を追加する
-     * @param ItemsModel $items
+     * @param Items $items
      * @return boolean|number
      */
     public function insert(Items $items)
@@ -60,11 +60,11 @@ class StockModel
      * @param number $stock
      * @return boolean
      */
-    public function updateStock($drink_id, $stock)
+    public function updateStock($item_id, $stock)
     {
 
         // SQL文
-        $sql = 'UPDATE stock SET stock = ? , update_datetime = NOW() WHERE drink_id = ? ';
+        $sql = 'UPDATE stock SET stock = ? , update_datetime = NOW() WHERE item_id = ? ';
         try {
             // SQL文を実行する準備
             $stmt = $this->dbh->prepare($sql);

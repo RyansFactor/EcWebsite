@@ -5,10 +5,12 @@ require_once 'model/MaserItemsModel.php';
 require_once 'model/Cart.php';
 require_once 'model/CartModel.php';
 
-
-//空にする
+// 空にする
 $items = new Items();
 $cart = new Cart();
+
+
+$message = '';
 
 // データベースの接続
 $dbh = getDbConnect();
@@ -18,55 +20,45 @@ if (! isset($dbh)) {
     exit();
 }
 
+// カート モデルの呼び出し
+$model = new CartModel($dbh);
+
 // セッション開始
 session_start();
 // セッション変数からuser_id取得
 $userId = (isset($_SESSION['userId'])) ? $_SESSION['userId'] : '';
 $userName = (isset($_SESSION['name'])) ? $_SESSION['name'] : '';
 
-
-if($userId == '') {
+if ($userId == '') {
     header("Location: user_login_contr.php"); // ログイン画面へ遷移
-} else {
+    exit();
+}
+// GETされてるかチェック
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    if (isset($_GET['cart_id'])) {
 
-    //カート　モデルの呼び出し
-    $model = new CartModel($dbh);
-    // 商品一覧を取得
-    $data = $model->findCart($userId);
+        $cartId = $_GET['cart_id'];
+        $model->deleteCart($cartId);
 
+        $message = '商品をカートから削除しました';
+    }
 }
 
+// 商品一覧を取得
+$data = $model->findCart($userId);
+
+//合計計算
+$sum = 0;
+$tax = 0;
+$sumTax = 0;
+
+foreach($data as $cart){
+    $sum += $cart->getPrice();
+}
+
+$tax = $sum * 0.08;
+
+$sumTax = $sum + $tax;
 
 
-// // GETされてるかチェック
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//     $itemId = $_POST['item_id'];
-
-
-
-
-//     $cart->setUser_id($userId);
-
-
-//     $cart->setItem_id($itemId);
-
-//     //インスタンスsさくせい
-//     $model = new MasterItemsModel($dbh);
-//     $datas = $model->findById($itemId);
-
-
-
-
-
-//     if(count($datas) > 0) {
-//         $items = $datas[0];
-//     }
-
-//     $model = new CartModel($dbh);
-//     $model->insert($cart);
-
-
-// }
-
-
-include './view/cart_view.php' ;
+include './view/cart_view.php';
