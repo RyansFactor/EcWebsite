@@ -24,35 +24,49 @@ session_start();
 $userId = (isset($_SESSION['userId'])) ? $_SESSION['userId'] : '';
 $userName = (isset($_SESSION['name'])) ? $_SESSION['name'] : '';
 
-// ポストされてるかチェック
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $itemId = $_GET['item_id'];
 
+if($userId == '') {
+    header("Location: user_login_contr.php"); // ログイン画面へ遷移
+} else {
 
-
-
-    $cart->setUser_id($userId);
-
-
-    $cart->setItem_id($itemId);
-
-    //インスタンスsさくせい
-    $model = new MasterItemsModel($dbh);
-    $datas = $model->findById($itemId);
-
-
-
-
-
-    if(count($datas) > 0) {
-        $items = $datas[0];
-    }
-
+    //カート　モデルの呼び出し
     $model = new CartModel($dbh);
-    $model->insert($cart);
-
+    // 商品一覧を取得
+    $data = $model->findCart($userId);
 
 }
+
+
+
+// // GETされてるかチェック
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//     $itemId = $_POST['item_id'];
+
+
+
+
+//     $cart->setUser_id($userId);
+
+
+//     $cart->setItem_id($itemId);
+
+//     //インスタンスsさくせい
+//     $model = new MasterItemsModel($dbh);
+//     $datas = $model->findById($itemId);
+
+
+
+
+
+//     if(count($datas) > 0) {
+//         $items = $datas[0];
+//     }
+
+//     $model = new CartModel($dbh);
+//     $model->insert($cart);
+
+
+// }
 
 
 include './view/cart_view.php' ;

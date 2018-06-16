@@ -28,7 +28,7 @@
 		</ul>
 		</div>
 		<div class="printName">
-		○○ ○○○ 様
+		<?php print $userName.'様';?>
 		</div>
 		<div class="icon">
 			<a href="./cart_contr.php"><i class="fas fa-shopping-cart"></i></a>

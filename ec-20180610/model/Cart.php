@@ -10,12 +10,20 @@ class Cart
     private $user_id;
     private $item_id;
     private $amount;
+    private $name;
+    private $price;
+    private $img1;
+    private $size;
 
     public function __construct(){
         $this->cart_id = 0;
         $this->user_id = '';
         $this->item_id = 0;
         $this->amount = 1;
+        $this->name = '';
+        $this->price = 0;
+        $this->img1 = '';
+        $this->size = '';
     }
     /**
      * @return number
@@ -26,7 +34,7 @@ class Cart
     }
 
     /**
-     * @return number
+     * @return string
      */
     public function getUser_id()
     {
@@ -50,6 +58,38 @@ class Cart
     }
 
     /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return number
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImg1()
+    {
+        return $this->img1;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSize()
+    {
+        return $this->size;
+    }
+
+    /**
      * @param number $cart_id
      */
     public function setCart_id($cart_id)
@@ -58,7 +98,7 @@ class Cart
     }
 
     /**
-     * @param number $user_id
+     * @param string $user_id
      */
     public function setUser_id($user_id)
     {
@@ -79,6 +119,38 @@ class Cart
     public function setAmount($amount)
     {
         $this->amount = $amount;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param number $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
+    /**
+     * @param string $img1
+     */
+    public function setImg1($img1)
+    {
+        $this->img1 = $img1;
+    }
+
+    /**
+     * @param string $size
+     */
+    public function setSize($size)
+    {
+        $this->size = $size;
     }
 
 

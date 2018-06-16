@@ -15,6 +15,13 @@ if (! isset($dbh)) {
 }
 
 
+// セッション開始
+session_start();
+// セッション変数からuser_id取得
+$userId = (isset($_SESSION['userId'])) ? $_SESSION['userId'] : '';
+$userName = (isset($_SESSION['name'])) ? $_SESSION['name'] : '';
+
+
 // 公開中のものだけ　モデルの呼び出し
 $model = new MasterItemsModel($dbh);
 // 商品一覧を取得

@@ -25,7 +25,14 @@ session_start();
 $userId = (isset($_SESSION['userId'])) ? $_SESSION['userId'] : '';
 $userName = (isset($_SESSION['name'])) ? $_SESSION['name'] : '';
 
+
+//カートに追加するボタンが押されたら
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    if($userId == '') {
+        header("Location: user_login_contr.php"); // ログイン画面へ遷移
+    }
+    else {
 
     $sql_kind = isParam('sql_kind');
     switch($sql_kind) {
@@ -53,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             break;
-
+    }
     }
 
 }
