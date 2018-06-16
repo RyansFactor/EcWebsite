@@ -26,7 +26,7 @@ class CartModel
      * 商品を追加する
      *
      * @param Items $items
-     * @return boolean|string
+     * @return boolean
      */
     public function insert(Cart $cart)
     {
@@ -39,23 +39,20 @@ VALUES (?,?,?,NOW())';
             // プレースホルダに ステータス をバインド
             $stmt->bindValue(1, $cart->getUser_id(), PDO::PARAM_STR);
             // プレースホルダに ステータス をバインド
-            $stmt->bindValue(2, $cart->getItem_id(), PDO::PARAM_STR);
+            $stmt->bindValue(2, $cart->getItem_id(), PDO::PARAM_INT);
             // プレースホルダに ステータス をバインド
             $stmt->bindValue(3, $cart->getAmount(), PDO::PARAM_INT);
 
 
             // SQLを実行
             $stmt->execute();
-            // 追加できたのでIDを取得
-            $item_id = $this->dbh->lastInsertId('item_id');
-            // drink_idを保存
-            $items->setItem_id($item_id);
+
         } catch (PDOException $e) {
             // エラーが発生
             $this->error = $e->getMessage();
             return false;
         }
         // 正常終了
-        return $item_id;
+        return true;
     }
 }

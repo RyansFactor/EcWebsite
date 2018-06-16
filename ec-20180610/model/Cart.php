@@ -13,7 +13,7 @@ class Cart
 
     public function __construct(){
         $this->cart_id = 0;
-        $this->user_id = 0;
+        $this->user_id = '';
         $this->item_id = 0;
         $this->amount = 1;
     }

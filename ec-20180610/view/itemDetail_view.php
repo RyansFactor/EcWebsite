@@ -93,7 +93,7 @@
 					<form method="post" action="itemDetail_contr.php">
 						<!-- 					カートへのinsert -->
 						<input type="hidden" name="sql_kind" value="insert"> <input
-							type="hidden" name="itemId" value="<?php $items->getItem_id();?>">
+							type="hidden" name="itemId" value="<?php print $items->getItem_id();?>">
 
 
 

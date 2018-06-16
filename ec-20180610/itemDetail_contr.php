@@ -43,6 +43,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $message = '商品をカートに追加しました';
 
+            //インスタンスsさくせい
+            $model = new MasterItemsModel($dbh);
+
+            $datas = $model->findById($itemId);
+
+            if(count($datas) > 0) {
+                $items = $datas[0];
+            }
+
             break;
 
     }
