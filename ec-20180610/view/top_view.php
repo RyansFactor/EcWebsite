@@ -13,14 +13,14 @@
 	crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans"
 	rel="stylesheet">
-<link rel="stylesheet" type="text/css"
-	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-<script type="text/javascript"
-	src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
  <!--ドロップダウンメニューのJquery -->
  <script
  	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="./view/js/ec.js"></script>
+
+
 </head>
 
 <body>
@@ -32,8 +32,8 @@
 			<a href="./top.php"><img src="./img/logo.jpg"></a>
 			<div class="menu">
 				<ul>
-					<li><a href="./view/concept_view.php">CONCEPT</a></li>
-					<li><a href="./view/news_view.php">NEWS</a></li>
+					<li><a href="./concept.php">CONCEPT</a></li>
+					<li><a href="./news.php">NEWS</a></li>
 					<li><a href="./item_contr.php">ITEM</a></li>
 					<li><a href="./contact_contr.php">CONTACT</a></li>
 				</ul>
@@ -47,7 +47,7 @@
 				</div>
 				<div class="dropMenu">
 					<ul class="drop">
-						<li class="userIcon"><a href="./user_contr.php"><i class="fas fa-user-circle"></i></a>
+						<li class="userIcon"><i class="fas fa-user-circle"></i></a>
 
 							<ul class="dropSub">
 								<li><a href="./user_contr.php">新規会員登録</a></li>
@@ -67,15 +67,16 @@
 
 
 	<main class="topMain">
+
 	<div class="slide">
-		<div class="slideSub">
-			<div>
-				<img src="./img/top.jpg">
-			</div>
-			<div>2</div>
-			<div>3</div>
-			</div>
-		</div>
+
+			<img src="./img/top.jpg">
+
+
+
+	</div>
+
+
 		<h2>NEW ITEM</h2>
 		<div class="newItem">
 			<table>

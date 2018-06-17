@@ -61,14 +61,15 @@ table, th, tr, td {
 
 /* メニューボタンの設定 */
 .menu {
-    width: 580px;
 	margin: auto;
+	padding: 0px;
+	width: 690px;
 }
 
 .menu ul {
-	width: 580px;
+	width: 630px;
 	margin: auto 0px;
-	padding: 0px;
+	padding: 0px 30px;
 	display: flex;
 	align-items: center;
 }
@@ -93,8 +94,8 @@ table, th, tr, td {
   }
 
 .printName {
-	width: 150px;
-	margin: auto 10px;
+	width: 110px;
+	margin: auto 0px;
 	text-align: right;
 	font-size: 13px;
 }
@@ -112,17 +113,43 @@ header i{
 }
 
 .cartIcon {
-    width: 50px;
+    width: 40px;
     margin: auto;
+    text-align:right;
     }
 
-.dropMenu {
-    width: 200px;
+.drop {
+	width: 80px;
+	height: 72px;
+	padding: 0px;
+	margin: 0px;
 }
 
-.drop ul{
-	margin: 0px;
-	padding: 0px;
+.dropMenu {
+    width: 80px;
+    height: 72px;
+    margin: auto 0px;
+    position: relative;
+}
+
+.dropSub {
+	position:absolute;
+	top:50px;
+	right: 0px;
+}
+
+.userIcon i {
+	position:absolute;
+	top: 25px;
+	right: 30px;
+}
+
+.dropSub ul {
+	width: 150px;
+}
+
+.dropSub li {
+	width: 150px;
 }
 
 .dropSub a {
@@ -137,9 +164,11 @@ header i{
 }
 
 .userIcon {
-    width:150px;
+    width:80px;
+    height: 72px;
     margin: 0px;
 }
+
 
 footer {
 	text-align: center;

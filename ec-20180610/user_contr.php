@@ -22,6 +22,11 @@ $user = new User();
 // エラーメッセージ配列
 $err_msg = array();
 
+// セッション開始
+session_start();
+// セッション変数からuser_id取得
+$userId = (isset($_SESSION['userId'])) ? $_SESSION['userId'] : '';
+$userName = (isset($_SESSION['name'])) ? $_SESSION['name'] : '';
 
 // データベースの接続
 $dbh = getDbConnect();
