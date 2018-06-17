@@ -13,13 +13,6 @@ $row = array();
 // エラーメッセージ配列
 $err_msg = array();
 
-// セッション開始
-session_start();
-// セッション変数からuser_id取得
-$userId = (isset($_SESSION['userId'])) ? $_SESSION['userId'] : '';
-$userName = (isset($_SESSION['name'])) ? $_SESSION['name'] : '';
-
-
 // データベースの接続
 $dbh = getDbConnect();
 if (! isset($dbh)) {
@@ -36,32 +29,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
 
         // 取得と検査
-        $userId = stringParam($_POST['userId'], 1, 1, 20);
+        //$userId = stringParam($_POST['userId'], 1, 1, 20);
+        //$userLogin->setUserId($userId);
+        //$password = stringParam($_POST['password'], 2, 1, 100);
+        //$userLogin->setPassword($password);
+        // パラメータを取得
+        $userId = (isset($_POST['userId'])) ? $_POST['userId']: '';
         $userLogin->setUserId($userId);
-        $password = stringParam($_POST['password'], 2, 1, 100);
+        $password = (isset($_POST['password'])) ? $_POST['userId']: '';
         $userLogin->setPassword($password);
-
+        // パラメータを検査
+        $userLogin->validate($_POST,1);
         // モデルの生成 MuSQLの
         $model = new UserLoginModel($dbh);
-
         // セレクトでとりだし
         $rows = $model->select($userLogin);
-
-        // ろぐいんできた
+        // ろぐいんできたか検査
         if ($rows !== FALSE) {
+        	// ログイン成功
             session_start();
             $_SESSION["userId"] = $userId;
             $_SESSION["name"] = $rows[0]->getName();
             header("Location: top.php"); // メイン画面へ遷移
         } else {
             // 認証失敗
-            $errorMessage = "ユーザIDあるいはパスワードに誤りがあります。";
+        	$err_msg[] = "ユーザIDあるいはパスワードに誤りがあります。";
         }
-
-        // default:
-        // http_response_code(400);
-        // exit();
-    } catch (LengthException $e) {
+        
+/*    } catch (LengthException $e) {
         switch ($e->getCode()) {
             case 0:
                 $err_msg[] = $e->getMessage();
@@ -79,14 +74,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $err_msg[] = 'お問い合わせは' . $e->getMessage();
                 break;
         }
+    }*/
+    } catch (InvalidArgumentException $e) {
+    	if( $e->getCode() === 1 ) {
+    		$err_msg = $userLogin->getErrorMessage();
+    	}
     }
 }
-
+// Viewを表示する
 include './view/user_login_view.php';
-
-
-// ■メールアドレスを入力してください
-// ■パスワードを入力してください
-
-// ■メールアドレスが間違っています
-// ■パスワードが間違っています

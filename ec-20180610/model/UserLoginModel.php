@@ -1,5 +1,7 @@
 <?php
 
+require_once 'model/Valitron/Validator.php';
+
 class UserLogin
 {
 
@@ -8,6 +10,8 @@ class UserLogin
     private $password;
 
     private $name;
+    
+    private $errors;
 
     public function __construct()
     {
@@ -18,6 +22,37 @@ class UserLogin
         $this->name = '';
     }
 
+    public function validate(array $param,$code = 0) {
+    	
+    	$v = new Validator($param,array(),'ja');
+    	
+    	$v->labels(array(
+    			'userId' => 'メールアドレス',
+    			'password' => 'パスワード'
+    	));
+    	$v->rule('required', ['userId', 'password'])->message('{field}を入力してください');
+    	$v->rule('lengthMin','password', 8)->message('{field}を８文字以上で入力してください');
+    	$v->rule('lengthMax','password', 16)->message('{field}を１６文字以内で入力してください');
+    	
+		// 検査を行う
+    	if( $v->validate() === true ) {
+    		return true;
+    	} else {
+    		// エラーが発生
+    		$errors = $v->errors();
+    		foreach ($errors AS $fe) {
+    			foreach ($fe AS $message) {
+    				$this->errors[] = $message;
+    			}
+    		}
+    		throw new InvalidArgumentException('validate',$code);
+    	}
+    }
+    
+    public function getErrorMessage() {
+    	return $this->errors;
+    }
+    
     /**
      *
      * @return string
