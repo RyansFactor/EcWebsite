@@ -72,6 +72,17 @@ input[type="text"]{
 	color: #fff;
 }
 
+.tdSubmit input[type="submit"] {
+	display: block;
+	margin: 0px auto;
+	font-family: FontAwesome;
+	border-radius: 5px;
+	width: 100px;
+	padding: 5px;
+	background-color: #30499B;
+	font-size: 15px;
+	color: #fff;
+}
 
 textarea {
 	margin: 5px;

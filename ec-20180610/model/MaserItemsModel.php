@@ -160,28 +160,57 @@ VALUES (?,?,?,?,?,?,?,?,NOW(),NOW())';
     /**
      * 状態を更新する
      *
-     * @param string $drink_id
+     * @param string
      * @param number $status
      * @return boolean
      */
-    public function updateStatus($item_id, $status)
+    public function updateAll (Items $items)
     {
+        // トランザクション開始　
+        $this->dbh->beginTransaction();
         // SQL文
-        $sql = 'UPDATE drink_master SET status = ? , update_datetime = NOW() WHERE drink_id = ? ';
+        $sql = 'UPDATE items SET price=?,status=?,update_datetime=NOW() WHERE item_id=?';
         try {
             // SQL文を実行する準備
             $stmt = $this->dbh->prepare($sql);
             // プレースホルダに ステータス をバインド
-            $stmt->bindValue(1, $status, PDO::PARAM_INT);
-            // プレースホルダに drink_id をバインド
-            $stmt->bindValue(2, $drink_id, PDO::PARAM_STR);
+            $stmt->bindValue(1, $items->getPrice(), PDO::PARAM_INT);
+            // プレースホルダに  をバインド
+            $stmt->bindValue(2, $items->getStatus(), PDO::PARAM_INT);
+            // プレースホルダに  をバインド
+            $stmt->bindValue(3, $items->getItem_id(), PDO::PARAM_INT);
+
             // SQLを実行
             $stmt->execute();
+
         } catch (PDOException $e) {
             // エラーが発生
             $this->error = $e->getMessage();
+            // ロールバック処理
+            $this->dbh->rollback();
             return false;
         }
+
+        $sql = 'UPDATE stock SET stock=?, update_datetime=NOW() WHERE item_id=?';
+        try {
+            // SQL文を実行する準備
+            $stmt = $this->dbh->prepare($sql);
+            // プレースホルダに ステータス をバインド
+            $stmt->bindValue(1, $items->getStock(), PDO::PARAM_INT);
+            // プレースホルダに ステータス をバインド
+            $stmt->bindValue(2, $items->getItem_id(), PDO::PARAM_INT);
+            // SQLを実行
+            $stmt->execute();
+
+        } catch (PDOException $e) {
+            // エラーが発生
+            $this->error = $e->getMessage();
+            // ロールバック処理
+            $this->dbh->rollback();
+            return false;
+        }
+        // コミット処理
+        $this->dbh->commit();
         // 正常終了
         return true;
     }

@@ -4,13 +4,9 @@
 <meta charset="UTF-8">
 <title>商品管理</title>
 <!--リセットは上に書く-->
-<link rel="styeleshet" href="html5reset-1.6.1(1).css">
-<link rel="stylesheet" href="./view/css/header.css">
+<link rel="styeleshet" href="html5reset-1.6.1.css">
 <link rel="stylesheet" href="./view/css/tool.css">
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-	integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-	crossorigin="anonymous">
+
 </head>
 
 <body class="toolView">
@@ -57,8 +53,8 @@
 						<option value="white">white</option>
 				</select></td>
 				<td><select name="status">
-						<option value="0">入会</option>
-						<option value="1">退会済み</option>
+						<option value="1">公開</option>
+						<option value="0">非公開</option>
 				</select></td>
 				<td><input type="submit" value="商品を追加"></td>
 			</tr>
@@ -75,28 +71,39 @@
         foreach ($data as $items) : ?>
 
 			<tr>
+			<form method="post">
 				<td><img src="<?php echo $items->getImg1(); ?>"></td>
 				<td><img src="<?php echo $items->getImg2(); ?>"></td>
 				<td><?php echo $items->getName(); ?></td>
 				<td><input type="number" name="updatePrice" value="<?php echo $items->getPrice(); ?>">円</td>
 				<td><?php echo $items->getSize(); ?></td>
-				<td><input type="number" name="updatePrice" value="<?php echo $items->getStock(); ?>">個</td>
+				<td><input type="number" name="updateStock" value="<?php echo $items->getStock(); ?>">個</td>
 				<td><?php echo $items->getColor(); ?></td>
 				<td>
+				<select name="updateStatus">
 				<?php if ($items->getStatus() == 0 ) { ?>
-        		<input type="submit" value="非公開 → 公開">
-<?php } else { ?>
-        		<input type="submit" value="公開 → 非公開">
-<?php } ?>
-<!-- 						<option value="0">非公開</option> -->
-<!-- 						<option value="1">公開</option> -->
-</td>
-				<td><input type="submit" value="変更"></td>
+							<option value="0" selected>非公開</option>
+        					<option value="1">公開</option>
+
+				<?php } else { ?>
+							<option value="0">非公開</option>
+        					<option value="1" selected>公開</option>
+				<?php } ?>
+				</select>
+				</td>
+				<td class="tdSubmit">
+				<input type="submit" value="変更">
+				<input type="hidden" name="sql_kind" value="itemUpdate">
+				<input type="hidden" name="item_id" value="<?php echo $items->getItem_id(); ?>">
+				</td>
+
+			</form>
 			</tr>
 
 			<tr>
 				<th class="toolTableBack">コメント</th>
 				<td colspan="8"><?php echo $items->getComment(); ?></td>
+
 			</tr>
 
 		<?php endforeach;

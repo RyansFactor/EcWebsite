@@ -68,9 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $items->setComment($comment);
 
 
-
-
-
             //モデルの生成
             $model = new MasterItemsModel($dbh);
 
@@ -79,6 +76,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $result_msg = '商品を追加しました';
             break;
+
+
+            case 'itemUpdate';
+
+            $item_id = $_POST['item_id'];
+            $items->setItem_id($item_id);
+
+            $updatePrice = $_POST['updatePrice'];
+            $items->setPrice($updatePrice);
+
+            $updateStock = $_POST['updateStock'];
+            $items->setStock($updateStock);
+
+            $updateStatus = $_POST['updateStatus'];
+            $items->setStatus($updateStatus);
+
+            //モデルの生成
+            $model = new MasterItemsModel($dbh);
+            //
+            $model->updateAll($items);
+
+            $message = '商品の情報を変更しました';
+
+            break;
+
+
+
 
             default:
                 http_response_code(400);
