@@ -39,7 +39,10 @@
 				</ul>
 			</div>
 			<div class="printName">
-			<?php print $userName.'様';?>
+						<?php if($userName !== '') {
+			         print $userName.'様';
+			      }
+			?>
 		</div>
 
                 <div class="cartIcon">
