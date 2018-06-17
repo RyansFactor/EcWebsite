@@ -69,33 +69,35 @@
 
 		<div class="userTable">
 		<h2>ユーザー情報変更</h2>
+		<?php print $message; ?>
 			<form method="post">
+			<?php foreach ( $data as $user) :?>
 			<table>
 				<tr>
 					<th>メールアドレス<small><br>
 					<span>登録のアドレスが<br>ユーザーIDとなります。</span></small></th>
-					<td><input type="email" name="email" value=""></td>
+					<td><input type="email" name="updateUserId" value="<?php print $userId; ?>"></td>
 				</tr>
 				<tr>
 					<th>パスワード</th>
-					<td><input type="password" name="password" value=""></td>
+					<td><input type="password" name="updatePassword" value="<?php print $user->getPassword(); ?>"></td>
 				</tr>
 				<tr>
 					<th>お名前</th>
-					<td><input type="text" name="name" value=""></td>
+					<td><input type="text" name="updateName" value="<?php print $user->getName(); ?>"></td>
 				</tr>
 
 				<tr>
 					<th>お電話番号</th>
-					<td><input type="tel" name="tel" value=""></td>
+					<td><input type="tel" name="updateTel" value="<?php print $user->getTel(); ?>"></td>
 				</tr>
 				<tr>
 					<th>郵便番号</th>
-					<td><input type="text" name="postalCode" value=""></td>
+					<td><input type="text" name="updatePostalCode" value="<?php print $user->getPostalCode(); ?>"></td>
 				</tr>
 				<tr>
 					<th>都道府県</th>
-				<td><select name="pref_id">
+				<td><select name="updatePre">
 <option value="" selected>都道府県</option>
 <option value="1">北海道</option>
 <option value="2">青森県</option>
@@ -149,16 +151,21 @@
 
 				<tr>
 					<th>ご住所</th>
-					<td><input type="text" name="place1" value=""></td>
+					<td><input type="text" name="updateAdress1" value="<?php print $user->getAdress1(); ?>"></td>
 				</tr>
 				<tr>
 					<th>マンション・建物名</th>
-					<td><input type="text" name="place2" value=""></td>
+					<td><input type="text" name="updateAdress2" value="<?php print $user->getAdress2(); ?>"></td>
 				</tr>
 				</table>
+				<?php endforeach; ?>
 				<input type="submit" name="submit" value="変更する">
+				<input type="hidden" name="sql_kind" value="updateUser">
+				</form>
+				<form method="post">
 				<input type="submit" name="submit" value="退会する">
- 			</form>
+				<input type="hidden" name="sql_kind" value="updateUserStatus">
+				</form>
 		</div>
 
 	</main>
