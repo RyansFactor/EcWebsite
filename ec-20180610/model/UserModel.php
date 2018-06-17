@@ -140,28 +140,26 @@ class UserModel
     {
 
         // SQL文
-        $sql = 'UPDATE user SET user_id=?,password=?,name=?,tel=?,postal_code=?,prefecture=?,adress1=?,adress2=?,update_datetime=NOW() WHERE item_id=?';
+        $sql = 'UPDATE users SET password=?,name=?,tel=?,postal_code=?,prefecture=?,adress1=?,adress2=?,update_datetime=NOW() WHERE user_id=?';
         try {
             // SQL文を実行する準備
             $stmt = $this->dbh->prepare($sql);
-            // プレースホルダに ステータス をバインド
-            $stmt->bindValue(1, $user->getUserId(), PDO::PARAM_STR);
             // プレースホルダに をバインド
-            $stmt->bindValue(2, $user->getPassword(), PDO::PARAM_STR);
+            $stmt->bindValue(1, $user->getPassword(), PDO::PARAM_STR);
             // プレースホルダに をバインド
-            $stmt->bindValue(3, $user->getName(), PDO::PARAM_STR);
+            $stmt->bindValue(2, $user->getName(), PDO::PARAM_STR);
             // プレースホルダに をバインド
-            $stmt->bindValue(4, $user->getTel(), PDO::PARAM_STR);
+            $stmt->bindValue(3, $user->getTel(), PDO::PARAM_STR);
             // プレースホルダに をバインド
-            $stmt->bindValue(5, $user->getPostalCode(), PDO::PARAM_STR);
+            $stmt->bindValue(4, $user->getPostalCode(), PDO::PARAM_STR);
             // プレースホルダに をバインド
-            $stmt->bindValue(6, $user->getPrefecture(), PDO::PARAM_STR);
+            $stmt->bindValue(5, $user->getPrefecture(), PDO::PARAM_STR);
             // プレースホルダに をバインド
-            $stmt->bindValue(7, $user->getAdress1(), PDO::PARAM_STR);
+            $stmt->bindValue(6, $user->getAdress1(), PDO::PARAM_STR);
             // プレースホルダに をバインド
-            $stmt->bindValue(8, $user->getAdress2(), PDO::PARAM_STR);
+            $stmt->bindValue(7, $user->getAdress2(), PDO::PARAM_STR);
             // プレースホルダに をバインド
-            $stmt->bindValue(9, $userId, PDO::PARAM_STR);
+            $stmt->bindValue(8, $user->getUserId(), PDO::PARAM_STR);
 
             // SQLを実行
             $stmt->execute();

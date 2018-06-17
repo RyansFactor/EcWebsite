@@ -37,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         switch ($sql_kind) {
             case 'updateUser':
 
-                $userId = $_POST['updateUserId'];
                 $user->setUserId($userId);
 
                 $password = $_POST['updatePassword'];

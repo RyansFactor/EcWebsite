@@ -6,7 +6,7 @@
 <!--リセットは上に書く-->
 <link rel="styeleshet" href="./html5reset-1.6.1.css">
 <link rel="stylesheet" href="./view/css/header.css">
-<link rel="stylesheet" href="./view/css/top.css">
+<link rel="stylesheet" href="./view/css/news.css">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
 	integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
@@ -48,15 +48,18 @@
 				<div class="dropMenu">
 					<ul class="drop">
 						<li class="userIcon"><i class="fas fa-user-circle"></i></a>
-
 							<ul class="dropSub">
-								<li><a href="./user_contr.php">新規会員登録</a></li>
+
+
+								<?php if($userName !== '') {?>
 								<li><a href="./user_change_contr.php">会員情報変更</a></li>
+								<li><a href="./top.php?param=logout">ログアウト</a></li>
+										<?php } else { ?>
+								<li><a href="./user_contr.php">新規会員登録</a></li>
 								<li><a href="./user_login_contr.php">ログイン</a></li>
-								<li><form method="POST">
-										<input type="submit" name="submit" value="ログアウト">
-									</form></li>
-							</ul></li>
+								<?php } ?>
+							</ul>
+						</li>
 					</ul>
 				</div>
 

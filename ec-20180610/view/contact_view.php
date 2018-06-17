@@ -48,15 +48,18 @@
 				<div class="dropMenu">
 					<ul class="drop">
 						<li class="userIcon"><i class="fas fa-user-circle"></i></a>
-
 							<ul class="dropSub">
-								<li><a href="./user_contr.php">新規会員登録</a></li>
+
+
+								<?php if($userName !== '') {?>
 								<li><a href="./user_change_contr.php">会員情報変更</a></li>
+								<li><a href="./top.php?param=logout">ログアウト</a></li>
+										<?php } else { ?>
+								<li><a href="./user_contr.php">新規会員登録</a></li>
 								<li><a href="./user_login_contr.php">ログイン</a></li>
-								<li><form method="POST">
-										<input type="submit" name="submit" value="ログアウト">
-									</form></li>
-							</ul></li>
+								<?php } ?>
+							</ul>
+						</li>
 					</ul>
 				</div>
 
@@ -72,11 +75,7 @@
 		<?php print $result_msg;
 foreach ($err_msg as $message) {
     print $message;?><br><?php
-}
-       print $name;
-       print $email;
-       print $tel;
-       print $comment; ?>
+} ?>
 
 			<form method="post">
 			<input type="hidden" name="sql_kind" value="ask">

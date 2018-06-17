@@ -1,0 +1,17 @@
+
+h2{
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.newItem img{
+	width: 200px;
+}
+.newItem td {
+	width: 250px;
+}
+
+main {
+	margin: 0px;
+	padding: 80px 0px;
+	font-size: 15px;
+}

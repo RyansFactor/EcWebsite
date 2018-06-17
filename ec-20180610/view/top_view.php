@@ -97,9 +97,6 @@
 
 			</table>
 		</div>
-		<div>
-			<h2>INSTA</h2>
-		</div>
 
 	</main>
 

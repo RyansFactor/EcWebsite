@@ -157,6 +157,49 @@ VALUES (?,?,?,?,?,?,?,?,NOW(),NOW())';
         return $result;
     }
 
+
+    /**
+     * 公開状態の商品をいろごとに取得する
+     * @return
+     */
+    public function findColor($color)
+    {
+        $result = array();
+        // すべての商品を取得 公開のものだけ
+        $sql = 'SELECT items.item_id, name, price, img1, img2, status, size, color, item_comment, stock.stock FROM items LEFT JOIN stock ON items.item_id = stock.item_id WHERE items.status=1 AND items.color=?';
+
+        try {
+            // SQL文を実行する準備
+            $stmt = $this->dbh->prepare($sql);
+            // プレースホルダに ステータス をバインド
+            $stmt->bindValue(1, $color, PDO::PARAM_INT);
+            // SQLを実行
+            $stmt->execute();
+            // レコードの取得
+            $rows = $stmt->fetchAll();
+            // 取得したデータを商品として保存する
+            foreach ($rows as $row) {
+                $items = new Items();
+                $items->setItem_id($row['item_id']);
+                $items->setName($row['name']);
+                $items->setPrice($row['price']);
+                $items->setImg1($row['img1']);
+                $items->setImg2($row['img2']);
+                $items->setStatus($row['status']);
+                $items->setSize($row['size']);
+                $items->setColor($row['color']);
+                $items->setComment($row['item_comment']);
+                $items->setStock($row['stock']);
+                // 結果を返す配列に保存
+                $result[] = $items;
+            }
+        } catch (PDOException $e) {
+            // エラーが発生
+            $this->error = $e->getMessage();
+        }
+        return $result;
+    }
+
     /**
      * 状態を更新する
      *

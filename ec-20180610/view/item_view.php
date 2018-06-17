@@ -48,15 +48,18 @@
 				<div class="dropMenu">
 					<ul class="drop">
 						<li class="userIcon"><i class="fas fa-user-circle"></i></a>
-
 							<ul class="dropSub">
-								<li><a href="./user_contr.php">新規会員登録</a></li>
+
+
+								<?php if($userName !== '') {?>
 								<li><a href="./user_change_contr.php">会員情報変更</a></li>
+								<li><a href="./top.php?param=logout">ログアウト</a></li>
+										<?php } else { ?>
+								<li><a href="./user_contr.php">新規会員登録</a></li>
 								<li><a href="./user_login_contr.php">ログイン</a></li>
-								<li><form method="POST">
-										<input type="submit" name="submit" value="ログアウト">
-									</form></li>
-							</ul></li>
+								<?php } ?>
+							</ul>
+						</li>
 					</ul>
 				</div>
 
@@ -72,16 +75,16 @@
 		<h2>color</h2>
 		<div class="colorSearch">
 			<ul>
-    			<li><a href="#"><i class="fas fa-circle black"></i></a></li>
-    			<li><a href="#"><i class="fas fa-circle gray"></i></a></li>
-    			<li><a href="#"><i class="fas fa-circle red"></i></a></li>
-    			<li><a href="#"><i class="fas fa-circle pink"></i></a></li>
-    			<li><a href="#"><i class="fas fa-circle orange"></i></a></li>
-    			<li><a href="#"><i class="fas fa-circle yellow"></i></a></li>
-    			<li><a href="#"><i class="fas fa-circle green"></i></a></li>
-    			<li><a href="#"><i class="fas fa-circle lightblue"></i></a></li>
-    			<li><a href="#"><i class="fas fa-circle blue"></i></a></li>
-    			<li><a href="#"><i class="far fa-circle"></i></a></li>
+    			<li><a href="../ec-20180610/item_contr.php?color=<?php echo 'Black'; ?>"><i class="fas fa-circle black"></i></a></li>
+    			<li><a href="../ec-20180610/item_contr.php?color=<?php echo 'Gray'; ?>"><i class="fas fa-circle gray"></i></a></li>
+    			<li><a href="../ec-20180610/item_contr.php?color=<?php echo 'Red'; ?>"><i class="fas fa-circle red"></i></a></li>
+    			<li><a href="../ec-20180610/item_contr.php?color=<?php echo 'Pink'; ?>"><i class="fas fa-circle pink"></i></a></li>
+    			<li><a href="../ec-20180610/item_contr.php?color=<?php echo 'Orange'; ?>"><i class="fas fa-circle orange"></i></a></li>
+    			<li><a href="../ec-20180610/item_contr.php?color=<?php echo 'Yellow'; ?>"><i class="fas fa-circle yellow"></i></a></li>
+    			<li><a href="../ec-20180610/item_contr.php?color=<?php echo 'Green'; ?>"><i class="fas fa-circle green"></i></a></li>
+    			<li><a href="../ec-20180610/item_contr.php?color=<?php echo 'Lightblue'; ?>"><i class="fas fa-circle lightblue"></i></a></li>
+    			<li><a href="../ec-20180610/item_contr.php?color=<?php echo 'Blue'; ?>"><i class="fas fa-circle blue"></i></a></li>
+    			<li><a href="../ec-20180610/item_contr.php?color=<?php echo 'White'; ?>"><i class="far fa-circle"></i></a></li>
 			</ul>
 		</div>
 

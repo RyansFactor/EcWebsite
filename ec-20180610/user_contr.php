@@ -80,7 +80,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //テーブルに追加する
             $model->insert($user);
 
-            $result_msg = 'ユーザー登録が完了しました';
+
+            $result_msg = 'ユーザー登録が完了しました。<a href="user_login_contr.php">ログイン画面</a>でログインしてください。';
             break;
 
             default:

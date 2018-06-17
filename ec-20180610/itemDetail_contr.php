@@ -68,15 +68,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // ポストされてるかチェック
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $itemId = $_GET['item_id'];
+    if(isset($_GET['item_id'])){
+        $itemId = $_GET['item_id'];
 
-    //インスタンスsさくせい
-    $model = new MasterItemsModel($dbh);
-
-    $datas = $model->findById($itemId);
-
-    if(count($datas) > 0) {
-        $items = $datas[0];
+        //インスタンスsさくせい
+        $model = new MasterItemsModel($dbh);
+        $datas = $model->findById($itemId);
+        if(count($datas)> 0){
+            $items = $datas[0];
+        }
     }
 }
 

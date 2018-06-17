@@ -48,15 +48,18 @@
 				<div class="dropMenu">
 					<ul class="drop">
 						<li class="userIcon"><i class="fas fa-user-circle"></i></a>
-
 							<ul class="dropSub">
-								<li><a href="./user_contr.php">新規会員登録</a></li>
+
+
+								<?php if($userName !== '') {?>
 								<li><a href="./user_change_contr.php">会員情報変更</a></li>
+								<li><a href="./top.php?param=logout">ログアウト</a></li>
+										<?php } else { ?>
+								<li><a href="./user_contr.php">新規会員登録</a></li>
 								<li><a href="./user_login_contr.php">ログイン</a></li>
-								<li><form method="POST">
-										<input type="submit" name="submit" value="ログアウト">
-									</form></li>
-							</ul></li>
+								<?php } ?>
+							</ul>
+						</li>
 					</ul>
 				</div>
 
@@ -76,7 +79,7 @@
 				<tr>
 					<th>メールアドレス<small><br>
 					<span>登録のアドレスが<br>ユーザーIDとなります。</span></small></th>
-					<td><input type="email" name="updateUserId" value="<?php print $userId; ?>"></td>
+					<td><?php print $userId; ?></td>
 				</tr>
 				<tr>
 					<th>パスワード</th>
@@ -98,6 +101,7 @@
 				<tr>
 					<th>都道府県</th>
 				<td><select name="updatePre">
+
 <option value="" selected>都道府県</option>
 <option value="1">北海道</option>
 <option value="2">青森県</option>
@@ -162,10 +166,7 @@
 				<input type="submit" name="submit" value="変更する">
 				<input type="hidden" name="sql_kind" value="updateUser">
 				</form>
-				<form method="post">
-				<input type="submit" name="submit" value="退会する">
-				<input type="hidden" name="sql_kind" value="updateUserStatus">
-				</form>
+
 		</div>
 
 	</main>

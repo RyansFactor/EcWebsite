@@ -39,7 +39,10 @@
 				</ul>
 			</div>
 			<div class="printName">
-			<?php print $userName.'様';?>
+			<?php if($userName !== '') {
+			         print $userName.'様';
+			      }
+			?>
 		</div>
 
                 <div class="cartIcon">
@@ -48,15 +51,18 @@
 				<div class="dropMenu">
 					<ul class="drop">
 						<li class="userIcon"><i class="fas fa-user-circle"></i></a>
-
 							<ul class="dropSub">
-								<li><a href="./user_contr.php">新規会員登録</a></li>
+
+
+								<?php if($userName !== '') {?>
 								<li><a href="./user_change_contr.php">会員情報変更</a></li>
+								<li><a href="./top.php?param=logout">ログアウト</a></li>
+										<?php } else { ?>
+								<li><a href="./user_contr.php">新規会員登録</a></li>
 								<li><a href="./user_login_contr.php">ログイン</a></li>
-								<li><form method="POST">
-										<input type="submit" name="submit" value="ログアウト">
-									</form></li>
-							</ul></li>
+								<?php } ?>
+							</ul>
+						</li>
 					</ul>
 				</div>
 
@@ -71,19 +77,13 @@
 
 		<div class="userTable">
 		<h2>新規会員登録</h2>
-		<p>※マークは入力必須項目です。</p>
+		<div class="message">
 		<?php print $result_msg;
 foreach ($err_msg as $message) {
-    print $message;?><br><?php
-}
-    print $userId;
-    print $password;
-    print $name;
-    print $tel;
-    print $postalCode;
-    print $prefecture;
-    print $adress1;
-    print $adress2; ?>
+    print $message; ?><br><?php
+} ?></div>
+		<p>※マークは入力必須項目です。</p>
+
 
 			<form method="post">
 			<input type="hidden" name="sql_kind" value="regist">
